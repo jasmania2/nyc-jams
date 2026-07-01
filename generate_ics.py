@@ -273,6 +273,16 @@ ev("20260703T223000", "20260704T010000",
    "https://www.oneflightupjazz.com/",
    "FREQ=WEEKLY;BYDAY=FR")
 
+# ── CLOSE UP (Mon + Wed–Sun) ───────────────────────────────────────────────
+
+ev("20260706T233000", "20260707T010000",
+   "Close Up — Late Night Jam Session",
+   "Close Up, 154 Orchard St, Lower East Side, NYC",
+   "Headliner set at 10:30pm, open jam 11:30pm-1am (sometimes 2am). "
+   "Artist-driven jazz club. Closed Tuesdays. Check calendar for tonight's host.",
+   "https://www.closeupnyc.com",
+   "FREQ=WEEKLY;BYDAY=SU,MO,WE,TH,FR,SA")
+
 # ── SATURDAY ───────────────────────────────────────────────────────────────
 
 ev("20260704T190000", "20260704T230000",

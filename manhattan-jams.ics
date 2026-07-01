@@ -25,7 +25,7 @@ TZNAME:EDT
 END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:f1da05e1-be95-4739-9dc6-39393b27fbf6@manhattan-jams.nyc
+UID:61500cbb-80f7-4f9c-82c0-d4003c13a057@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260701T213000
 DTEND;TZID=America/New_York:20260702T013000
 RRULE:FREQ=DAILY
@@ -38,7 +38,7 @@ STATUS:CONFIRMED
 URL:https://shows.donttellmamanyc.com/piano-bar
 END:VEVENT
 BEGIN:VEVENT
-UID:164a63e9-38ea-41a4-94c9-9ffd753e4c21@manhattan-jams.nyc
+UID:bdc9841d-5796-4db4-9971-81dc77a7b02a@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260701T140000
 DTEND;TZID=America/New_York:20260701T180000
 RRULE:FREQ=DAILY
@@ -50,7 +50,7 @@ STATUS:CONFIRMED
 URL:https://www.smallslive.com
 END:VEVENT
 BEGIN:VEVENT
-UID:48b02b80-7046-4b66-9070-ea026819c117@manhattan-jams.nyc
+UID:3774cf52-0df3-4348-b03b-a10c5811cfa9@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260701T220000
 DTEND;TZID=America/New_York:20260702T000000
 RRULE:FREQ=DAILY
@@ -62,7 +62,7 @@ STATUS:CONFIRMED
 URL:https://www.smallslive.com
 END:VEVENT
 BEGIN:VEVENT
-UID:ebe03066-5486-46d8-b1df-1fcfb654ad85@manhattan-jams.nyc
+UID:78df96b2-1f47-4725-8d28-3bc9c2b101d0@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260701T234500
 DTEND;TZID=America/New_York:20260702T040000
 RRULE:FREQ=DAILY
@@ -74,7 +74,7 @@ STATUS:CONFIRMED
 URL:https://www.smallslive.com
 END:VEVENT
 BEGIN:VEVENT
-UID:fef3aa9e-55a7-48ac-a863-2666dcbbfe5a@manhattan-jams.nyc
+UID:a312f2d2-40f8-471b-a409-ee698b1cf6d9@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260705T180000
 DTEND;TZID=America/New_York:20260705T220000
 RRULE:FREQ=WEEKLY;BYDAY=SU
@@ -88,7 +88,7 @@ URL:https://www.harlemlatenightjazz.org/harlem-late-night-jazz-weekly-event
  s
 END:VEVENT
 BEGIN:VEVENT
-UID:66d7de29-1865-43c2-8a8e-c6bc539bfa80@manhattan-jams.nyc
+UID:d8e83470-b91b-4d86-8193-73951b66106b@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260705T200000
 DTEND;TZID=America/New_York:20260705T220000
 RRULE:FREQ=WEEKLY;BYDAY=SU
@@ -101,7 +101,7 @@ URL:https://donyc.com/events/weekly/sun/free-jazz-jam-open-mic-every-sunday
  -tickets
 END:VEVENT
 BEGIN:VEVENT
-UID:859aac54-1f9e-4a02-b2fa-092404621f2b@manhattan-jams.nyc
+UID:82456bb0-10de-4f41-a1f5-a299a1f3ebda@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260706T170000
 DTEND;TZID=America/New_York:20260706T213000
 RRULE:FREQ=WEEKLY;BYDAY=MO
@@ -115,7 +115,7 @@ STATUS:CONFIRMED
 URL:https://arthurstavern.nyc/events/
 END:VEVENT
 BEGIN:VEVENT
-UID:cda9016a-2088-44c9-8246-96968755f276@manhattan-jams.nyc
+UID:87db0412-1842-44fc-affd-6133d11f0fab@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260706T190000
 DTEND;TZID=America/New_York:20260706T220000
 RRULE:FREQ=WEEKLY;BYDAY=MO
@@ -127,7 +127,7 @@ STATUS:CONFIRMED
 URL:https://jazzgeneration.org/calendar
 END:VEVENT
 BEGIN:VEVENT
-UID:77cf0978-6d30-4fbc-a326-fe843494177a@manhattan-jams.nyc
+UID:043dbd41-bd3f-4ea6-9de0-4d100ccf1a8b@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260706T190000
 DTEND;TZID=America/New_York:20260706T210000
 RRULE:FREQ=WEEKLY;BYDAY=MO
@@ -137,7 +137,7 @@ DESCRIPTION:Weekly Monday blues jam hosted by Big Ed. $10 cover.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:c7490a59-b03f-4e48-8373-00792e1c084a@manhattan-jams.nyc
+UID:dace893a-7499-4f21-832d-4c8008029d89@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260706T200000
 DTEND;TZID=America/New_York:20260706T230000
 RRULE:FREQ=WEEKLY;BYDAY=MO
@@ -149,7 +149,7 @@ STATUS:CONFIRMED
 URL:https://www.fivespotjazz.com/upcomingshows
 END:VEVENT
 BEGIN:VEVENT
-UID:51e45fdd-6cd6-4c15-889a-2eae2ceee472@manhattan-jams.nyc
+UID:651a8a0f-fa07-42be-aa9d-663468e65e09@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260706T200000
 DTEND;TZID=America/New_York:20260706T230000
 RRULE:FREQ=WEEKLY;BYDAY=MO
@@ -163,7 +163,7 @@ STATUS:CONFIRMED
 URL:https://www.theginmillnyc.com/private-events-venue/speakeasy/
 END:VEVENT
 BEGIN:VEVENT
-UID:6cd16dc2-9c44-417d-8e11-26934d1570ef@manhattan-jams.nyc
+UID:b3889303-68cb-4957-b4be-207957dbb767@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260706T220000
 DTEND;TZID=America/New_York:20260707T000000
 RRULE:FREQ=WEEKLY;BYDAY=MO
@@ -173,7 +173,7 @@ DESCRIPTION:Hosted by Billy Joel's saxophonist. $12 cover.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:057714a2-022f-464f-82af-fa235d620aac@manhattan-jams.nyc
+UID:7781bd14-61c1-4b60-852f-01d4379be065@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260706T213000
 DTEND;TZID=America/New_York:20260707T000000
 RRULE:FREQ=WEEKLY;BYDAY=MO
@@ -187,7 +187,7 @@ STATUS:CONFIRMED
 URL:https://www.birdlandjazz.com/tm-event/jim-carusos-cast-party/
 END:VEVENT
 BEGIN:VEVENT
-UID:2bdfbde2-9767-4024-9c68-49d515938300@manhattan-jams.nyc
+UID:9d27f9d7-8cdf-44bc-ac7b-b9ec028e7f83@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260706T223000
 DTEND;TZID=America/New_York:20260707T013000
 RRULE:FREQ=WEEKLY;BYDAY=MO
@@ -200,7 +200,7 @@ STATUS:CONFIRMED
 URL:https://smokejazz.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:2d93b7ca-b6f0-41d9-adca-c48c31006618@manhattan-jams.nyc
+UID:23a73a35-fc4c-46e9-9549-fe7db7401ebd@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260727T130000
 DTEND;TZID=America/New_York:20260727T153000
 RRULE:FREQ=MONTHLY;BYDAY=-1MO
@@ -211,7 +211,7 @@ STATUS:CONFIRMED
 URL:https://jazzfoundation.org/monday-night-jam/
 END:VEVENT
 BEGIN:VEVENT
-UID:e5118a50-da22-4a83-9e15-c74dac1d1c58@manhattan-jams.nyc
+UID:a6575908-9294-4e62-acf8-9bd654cd0ce5@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260714T190000
 DTEND;TZID=America/New_York:20260714T210000
 RRULE:FREQ=MONTHLY;BYDAY=2TU
@@ -225,7 +225,7 @@ STATUS:CONFIRMED
 URL:https://www.reverieroomnyc.com/open-mic-night
 END:VEVENT
 BEGIN:VEVENT
-UID:baf7faaa-19e5-4918-b485-d66aa623952a@manhattan-jams.nyc
+UID:95439c62-3449-4c81-a3f4-cc6d9a3c64bd@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260707T193000
 DTEND;TZID=America/New_York:20260707T220000
 RRULE:FREQ=WEEKLY;BYDAY=TU
@@ -239,7 +239,7 @@ STATUS:CONFIRMED
 URL:https://www.jazzwahi.org/jazz-jam
 END:VEVENT
 BEGIN:VEVENT
-UID:51136cec-bbae-4f9e-9b21-ee8376702465@manhattan-jams.nyc
+UID:c0fad89d-9bda-47aa-aa93-3add58e9674a@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260707T130000
 DTEND;TZID=America/New_York:20260707T180000
 RRULE:FREQ=WEEKLY;BYDAY=TU
@@ -251,7 +251,7 @@ STATUS:CONFIRMED
 URL:https://www.smallslive.com
 END:VEVENT
 BEGIN:VEVENT
-UID:c84d0273-8e11-49af-a701-1adcfc6e942d@manhattan-jams.nyc
+UID:4f32bd3b-aeca-4ce6-9f8d-731cfeb02ea6@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260707T190000
 DTEND;TZID=America/New_York:20260707T230000
 RRULE:FREQ=WEEKLY;BYDAY=TU
@@ -263,7 +263,7 @@ STATUS:CONFIRMED
 URL:https://www.melbasrestaurant.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:d99ef000-a5b8-44c2-ae7c-effe5b9b67b6@manhattan-jams.nyc
+UID:d6e2361c-2fb0-4775-b515-1ce3ea405280@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260707T210000
 DTEND;TZID=America/New_York:20260707T230000
 RRULE:FREQ=WEEKLY;BYDAY=TU
@@ -275,7 +275,7 @@ STATUS:CONFIRMED
 URL:https://thestonewallinnnyc.com/weekly-events
 END:VEVENT
 BEGIN:VEVENT
-UID:629f28e8-039c-48e0-90cd-48248a630e52@manhattan-jams.nyc
+UID:7d2e2811-a308-4ffb-bcdb-7d4b6b604aa2@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260701T160000
 DTEND;TZID=America/New_York:20260701T171500
 RRULE:FREQ=WEEKLY;BYDAY=WE;UNTIL=20261028T235959Z
@@ -288,7 +288,7 @@ STATUS:CONFIRMED
 URL:https://www.jazzwahi.org/jazz-jam
 END:VEVENT
 BEGIN:VEVENT
-UID:3d3d43a0-4265-4f22-87bb-b4e69c452907@manhattan-jams.nyc
+UID:c70f340c-1ea6-48a3-a377-dd07d0c59405@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260701T190000
 DTEND;TZID=America/New_York:20260701T213000
 RRULE:FREQ=WEEKLY;BYDAY=WE;UNTIL=20261231T235959Z
@@ -304,7 +304,7 @@ URL:https://www.harlemlatenightjazz.org/harlem-late-night-jazz-weekly-event
  s
 END:VEVENT
 BEGIN:VEVENT
-UID:f10d9438-b84f-43a9-8fc6-a0cfb2d3cfb3@manhattan-jams.nyc
+UID:1b52c7eb-61c4-4cd0-bdfb-c31ab557eec6@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260701T190000
 DTEND;TZID=America/New_York:20260701T230000
 RRULE:FREQ=WEEKLY;BYDAY=WE
@@ -317,7 +317,7 @@ URL:https://www.harlemonestop.com/event/34689/harlem-harlem-harlem-jazz-nig
  ht-jam-session
 END:VEVENT
 BEGIN:VEVENT
-UID:129606ef-f296-48b4-ad31-2fbbd5084898@manhattan-jams.nyc
+UID:6ce33d51-3a5e-4107-8852-c893138e8f7c@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260701T210000
 DTEND;TZID=America/New_York:20260701T230000
 RRULE:FREQ=WEEKLY;BYDAY=WE
@@ -329,7 +329,7 @@ STATUS:CONFIRMED
 URL:https://thestonewallinnnyc.com/weekly-events
 END:VEVENT
 BEGIN:VEVENT
-UID:c157000d-01b0-4e54-9773-db77692a39fc@manhattan-jams.nyc
+UID:e8d63539-db1f-4a43-a460-9e9016b98341@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260702T170000
 DTEND;TZID=America/New_York:20260702T210000
 RRULE:FREQ=WEEKLY;BYDAY=TH
@@ -341,7 +341,7 @@ STATUS:CONFIRMED
 URL:https://thestonewallinnnyc.com/weekly-events
 END:VEVENT
 BEGIN:VEVENT
-UID:d533031a-f21c-4460-8c93-e79736983b36@manhattan-jams.nyc
+UID:21bc9ac2-a69d-4f87-9f13-30fbd70c1517@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260730T213000
 DTEND;TZID=America/New_York:20260730T233000
 RRULE:FREQ=MONTHLY;BYDAY=-1TH
@@ -355,7 +355,7 @@ STATUS:CONFIRMED
 URL:https://fourhandscollective.org/events
 END:VEVENT
 BEGIN:VEVENT
-UID:c2c81832-a23b-4b64-aeea-2017993e754d@manhattan-jams.nyc
+UID:392b3503-10e5-431b-b0bc-3992971e5e77@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260702T193000
 DTEND;TZID=America/New_York:20260702T213000
 RRULE:FREQ=WEEKLY;BYDAY=TH
@@ -365,7 +365,7 @@ DESCRIPTION:All genres. Free. Line up early to sign up.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:16bcaac2-a855-4b48-9cce-45fe47965c5b@manhattan-jams.nyc
+UID:498972af-0e67-4aae-8ced-b5584bae9b43@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260702T200000
 DTEND;TZID=America/New_York:20260702T230000
 RRULE:FREQ=WEEKLY;BYDAY=TH
@@ -375,7 +375,7 @@ DESCRIPTION:$15 cover. Weekly Thursday open mic.
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:dc90c16a-51cd-4c95-a6ff-b514e0a41b96@manhattan-jams.nyc
+UID:288f2eb5-9968-4af0-8dba-4fe0c93a545c@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260703T180000
 DTEND;TZID=America/New_York:20260703T220000
 RRULE:FREQ=WEEKLY;BYDAY=FR
@@ -386,7 +386,7 @@ STATUS:CONFIRMED
 URL:https://thestonewallinnnyc.com/weekly-events
 END:VEVENT
 BEGIN:VEVENT
-UID:bedc787a-37e0-48e6-81fb-fa918fccad55@manhattan-jams.nyc
+UID:d1c1319e-0495-4c62-b8cc-582f5d7e1923@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260703T223000
 DTEND;TZID=America/New_York:20260704T010000
 RRULE:FREQ=WEEKLY;BYDAY=FR
@@ -398,7 +398,20 @@ STATUS:CONFIRMED
 URL:https://www.oneflightupjazz.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:8cdf8322-de01-497f-a153-12f0d25d70a2@manhattan-jams.nyc
+UID:ffbccf87-a707-4657-bdb5-9eda4026b758@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260706T233000
+DTEND;TZID=America/New_York:20260707T010000
+RRULE:FREQ=WEEKLY;BYDAY=SU,MO,WE,TH,FR,SA
+SUMMARY:Close Up — Late Night Jam Session
+LOCATION:Close Up\, 154 Orchard St\, Lower East Side\, NYC
+DESCRIPTION:Headliner set at 10:30pm\, open jam 11:30pm-1am (sometimes 2am)
+ . Artist-driven jazz club. Closed Tuesdays. Check calendar for tonight's h
+ ost.
+STATUS:CONFIRMED
+URL:https://www.closeupnyc.com
+END:VEVENT
+BEGIN:VEVENT
+UID:b2b88588-9f4e-44ec-8808-d3096d496bf2@manhattan-jams.nyc
 DTSTART;TZID=America/New_York:20260704T190000
 DTEND;TZID=America/New_York:20260704T230000
 RRULE:FREQ=WEEKLY;BYDAY=SA
