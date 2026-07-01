@@ -1,0 +1,35 @@
+name: Regenerate Manhattan Jams ICS
+
+on:
+  schedule:
+    # Every Monday at 9am ET (14:00 UTC, works for both EST and EDT)
+    - cron: '0 14 * * 1'
+  workflow_dispatch: # also lets you trigger manually from GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate ICS
+        run: python generate_ics.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add manhattan-jams.ics
+          git diff --staged --quiet \
+            || git commit -m "Weekly ICS regeneration $(date -u +%Y-%m-%d)" \
+            && git push

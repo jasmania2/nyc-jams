@@ -1,0 +1,262 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Manhattan Jams Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Manhattan Jam Sessions & Open Mics (NYC)
+X-WR-CALDESC:Recurring weekly jam sessions and open mics in Manhattan. Veri
+ fied June 2026. Always call ahead.
+X-WR-TIMEZONE:America/New_York
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:STANDARD
+DTSTART:19671029T020000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=10
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19870405T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:e7a6bb4a-06a6-40db-bb36-03722a186eb2@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260701T213000
+DTEND;TZID=America/New_York:20260702T013000
+RRULE:FREQ=DAILY
+SUMMARY:Don't Tell Mama — Nightly Audience Open Mic
+LOCATION:Don't Tell Mama\, 343 W 46th St\, Hell's Kitchen\, NYC
+DESCRIPTION:Write your name + song on a napkin and hand to pianist. Runs un
+ til 2:30am. No cover\, 2-drink minimum. Live pianist 5pm\, singing waitsta
+ ff from 9pm.
+STATUS:CONFIRMED
+URL:https://shows.donttellmamanyc.com/piano-bar
+END:VEVENT
+BEGIN:VEVENT
+UID:2c483b8f-d38f-43ea-9752-fe7780da59ca@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260701T140000
+DTEND;TZID=America/New_York:20260701T180000
+RRULE:FREQ=DAILY
+SUMMARY:Jazzcultural — Afternoon Jam in the Cafe
+LOCATION:Jazzcultural\, 349 W 46th St\, Midtown\, NYC
+DESCRIPTION:Rotating hosts daily — check smallslive.com for tonight's music
+ ian. Sit in welcome.
+STATUS:CONFIRMED
+URL:https://www.smallslive.com
+END:VEVENT
+BEGIN:VEVENT
+UID:1b194ffa-cb83-4c88-962f-6054b414917d@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260701T220000
+DTEND;TZID=America/New_York:20260702T000000
+RRULE:FREQ=DAILY
+SUMMARY:Jazzcultural — Late Night Jam in the Cafe
+LOCATION:Jazzcultural\, 349 W 46th St\, Midtown\, NYC
+DESCRIPTION:Rotating pianist hosts nightly 10pm-midnight. Check smallslive.
+ com for host.
+STATUS:CONFIRMED
+URL:https://www.smallslive.com
+END:VEVENT
+BEGIN:VEVENT
+UID:29f17947-0502-4bfc-ad56-905b1901fc3d@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260701T234500
+DTEND;TZID=America/New_York:20260702T040000
+RRULE:FREQ=DAILY
+SUMMARY:Smalls Jazz Club — Late Night Jam Session
+LOCATION:Smalls Jazz Club\, 183 W 10th St\, West Village\, NYC
+DESCRIPTION:Nightly 11:45pm-4am with rotating hosts. Check smallslive.com f
+ or tonight's jam leader.
+STATUS:CONFIRMED
+URL:https://www.smallslive.com
+END:VEVENT
+BEGIN:VEVENT
+UID:4849f0cb-3f28-4017-870d-e13b3fe1c9ea@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260705T200000
+DTEND;TZID=America/New_York:20260705T220000
+RRULE:FREQ=WEEKLY;BYDAY=SU
+SUMMARY:Jazz By Jorei — Free Jazz Jam & Open Mic
+LOCATION:Sour Mouse\, Lower East Side\, NYC
+DESCRIPTION:Free weekly Sunday jazz jam. Singers and musicians welcome to s
+ ign up or sit in.
+STATUS:CONFIRMED
+URL:https://donyc.com/events/weekly/sun/free-jazz-jam-open-mic-every-sunday
+ -tickets
+END:VEVENT
+BEGIN:VEVENT
+UID:daee231b-bfe0-4dab-b17a-6e2da1e43b03@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260706T190000
+DTEND;TZID=America/New_York:20260706T210000
+RRULE:FREQ=WEEKLY;BYDAY=MO
+SUMMARY:Big Ed's World Famous Blues Jam
+LOCATION:The Red Lion\, 151 Bleecker St\, Greenwich Village\, NYC
+DESCRIPTION:Weekly Monday blues jam. $10 cover.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:c604bbdd-64bb-4c66-829c-e43b9962a43c@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260706T200000
+DTEND;TZID=America/New_York:20260706T230000
+RRULE:FREQ=WEEKLY;BYDAY=MO
+SUMMARY:Five Spot Jazz — Monday Night Jam (FREE)
+LOCATION:Five Spot Jazz\, 231 E 9th St\, East Village\, NYC
+DESCRIPTION:Doors 7:30pm. Rotating hosts: Allison Lee / Daniel Song. Sit-in
+  welcome. No music charge.
+STATUS:CONFIRMED
+URL:https://www.fivespotjazz.com/upcomingshows
+END:VEVENT
+BEGIN:VEVENT
+UID:cb235615-3562-40b5-834a-70d1846ecb8f@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260706T220000
+DTEND;TZID=America/New_York:20260707T000000
+RRULE:FREQ=WEEKLY;BYDAY=MO
+SUMMARY:Richie Cannata's Monday Night Jam
+LOCATION:The Bitter End\, 147 Bleecker St\, Greenwich Village\, NYC
+DESCRIPTION:Hosted by Billy Joel's saxophonist. $12 cover.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:5e8a7fa6-6a34-4089-97ee-a076b55c2f69@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260706T213000
+DTEND;TZID=America/New_York:20260707T000000
+RRULE:FREQ=WEEKLY;BYDAY=MO
+SUMMARY:Jim Caruso's Cast Party — Open Mic Variety Show
+LOCATION:Birdland\, 315 W 44th St\, Hell's Kitchen\, NYC
+DESCRIPTION:Legendary weekly open mic since 1993. Bring sheet music — sing 
+ with house band (Billy Stritch piano). Broadway stars and newcomers welcom
+ e. Cover + food/drink minimum.
+STATUS:CONFIRMED
+URL:https://www.birdlandjazz.com/tm-event/jim-carusos-cast-party/
+END:VEVENT
+BEGIN:VEVENT
+UID:0a4e9e11-b43e-4862-9517-68682e24f9e8@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260706T223000
+DTEND;TZID=America/New_York:20260707T013000
+RRULE:FREQ=WEEKLY;BYDAY=MO
+SUMMARY:Smoke Jazz — Monday Night Jam (~10:30pm after headliners)
+LOCATION:Smoke Jazz & Supper Club\, 2751 Broadway at 106th St\, Upper West 
+ Side\, NYC
+DESCRIPTION:Jam begins after the 8:30pm headliner set (~10:30pm). Headliner
+  shows 6:30pm + 8:30pm. Cover + minimum. Call (212) 864-6662.
+STATUS:CONFIRMED
+URL:https://smokejazz.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:909681cc-0227-4734-ae89-6da03b9328fc@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260727T130000
+DTEND;TZID=America/New_York:20260727T153000
+RRULE:FREQ=MONTHLY;BYDAY=-1MO
+SUMMARY:Jazz Foundation Monday Night Jam (Monthly — Last Monday)
+LOCATION:Musicians Union\, Midtown Manhattan\, NYC
+DESCRIPTION:Monthly jam — last Monday of each month. Free. 2026 remaining: 
+ Jul 27\, Aug 24\, Sep 28\, Oct 26\, Nov 23.
+STATUS:CONFIRMED
+URL:https://jazzfoundation.org/monday-night-jam/
+END:VEVENT
+BEGIN:VEVENT
+UID:424b5c96-02c5-48d4-a5b9-aa43fdb2435d@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260707T130000
+DTEND;TZID=America/New_York:20260707T180000
+RRULE:FREQ=WEEKLY;BYDAY=TU
+SUMMARY:Jazzcultural — Barry Harris Institute Free Lesson & Jam
+LOCATION:Jazzcultural\, 349 W 46th St\, Midtown\, NYC
+DESCRIPTION:Free admission. Recurring Tuesdays 1-6pm. Come learn\, jam\, si
+ t in. Confirmed Jun 30: Richard Clements (piano).
+STATUS:CONFIRMED
+URL:https://www.smallslive.com
+END:VEVENT
+BEGIN:VEVENT
+UID:c09fa05a-f3e9-4c34-a3e1-c7976961773f@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260707T190000
+DTEND;TZID=America/New_York:20260707T230000
+RRULE:FREQ=WEEKLY;BYDAY=TU
+SUMMARY:Melba's Tuesday Night Live Music Jam
+LOCATION:Melba's\, 300 W 114th St\, Harlem\, NYC
+DESCRIPTION:Live music jam with soul food\, DJ\, and dancing over dinner. S
+ mall venue — reservations strongly recommended. Call (212) 864-7777.
+STATUS:CONFIRMED
+URL:https://www.melbasrestaurant.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:e3b26d47-b139-4a5d-8bd7-abef468b9e97@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260707T210000
+DTEND;TZID=America/New_York:20260707T230000
+RRULE:FREQ=WEEKLY;BYDAY=TU
+SUMMARY:Stonewall Inn Piano Bar — 2nd Floor (Tue)
+LOCATION:Stonewall Inn\, 53 Christopher St\, West Village\, NYC
+DESCRIPTION:Guest pianists + singing waitstaff & bartenders. 2nd floor. No 
+ cover. Also Wednesdays 9pm.
+STATUS:CONFIRMED
+URL:https://thestonewallinnnyc.com/weekly-events
+END:VEVENT
+BEGIN:VEVENT
+UID:a37e4da9-a045-436d-b680-1991a44da56b@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260701T210000
+DTEND;TZID=America/New_York:20260701T230000
+RRULE:FREQ=WEEKLY;BYDAY=WE
+SUMMARY:Stonewall Inn Piano Bar — 2nd Floor (Wed)
+LOCATION:Stonewall Inn\, 53 Christopher St\, West Village\, NYC
+DESCRIPTION:Guest pianists + singing waitstaff & bartenders. 2nd floor. No 
+ cover. Also Tuesdays 9pm.
+STATUS:CONFIRMED
+URL:https://thestonewallinnnyc.com/weekly-events
+END:VEVENT
+BEGIN:VEVENT
+UID:ab437991-0fea-4bf7-9e2c-522fe40bb00b@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260702T170000
+DTEND;TZID=America/New_York:20260702T210000
+RRULE:FREQ=WEEKLY;BYDAY=TH
+SUMMARY:Stonewall Inn — Eight Ball Lounge Karaoke (Thu)
+LOCATION:Stonewall Inn\, 53 Christopher St\, West Village\, NYC
+DESCRIPTION:Hosted by Danielle. Pool table\, drink specials\, karaoke. 1st 
+ floor. No cover.
+STATUS:CONFIRMED
+URL:https://thestonewallinnnyc.com/weekly-events
+END:VEVENT
+BEGIN:VEVENT
+UID:40f2734d-3a06-4bd3-a66d-2c6e15a652b3@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260702T193000
+DTEND;TZID=America/New_York:20260702T213000
+RRULE:FREQ=WEEKLY;BYDAY=TH
+SUMMARY:Thursday Open Mic — Music\, Comedy\, Poetry
+LOCATION:The Music Inn\, 169 W 4th St\, Greenwich Village\, NYC
+DESCRIPTION:All genres. Free. Line up early to sign up.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:959f1e28-e11f-49ce-9aab-5af750132881@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260702T200000
+DTEND;TZID=America/New_York:20260702T230000
+RRULE:FREQ=WEEKLY;BYDAY=TH
+SUMMARY:Ashford & Simpson's Sugar Bar — Open Mic
+LOCATION:Sugar Bar\, 254 W 72nd St\, Upper West Side\, NYC
+DESCRIPTION:$15 cover. Weekly Thursday open mic.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:8fc345b9-c969-4f7b-a289-97a3a8074c1d@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260703T180000
+DTEND;TZID=America/New_York:20260703T220000
+RRULE:FREQ=WEEKLY;BYDAY=FR
+SUMMARY:Stonewall Inn — Karaoke with Jazz & DJ Chauncey D (Fri)
+LOCATION:Stonewall Inn\, 53 Christopher St\, West Village\, NYC
+DESCRIPTION:2nd floor. No cover. Weekly Friday.
+STATUS:CONFIRMED
+URL:https://thestonewallinnnyc.com/weekly-events
+END:VEVENT
+BEGIN:VEVENT
+UID:7de0e77b-5dbb-4c4b-851e-be2fc6d8ea5d@manhattan-jams.nyc
+DTSTART;TZID=America/New_York:20260703T223000
+DTEND;TZID=America/New_York:20260704T010000
+RRULE:FREQ=WEEKLY;BYDAY=FR
+SUMMARY:One Flight Up — Friday Night Jam Session
+LOCATION:One Flight Up\, 108 Greenwich St\, Financial District\, NYC
+DESCRIPTION:Open Wed-Sat. Confirmed weekly Friday jam after 7pm + 9pm headl
+ iner sets. $30 music room / $20 bar + 1 drink minimum.
+STATUS:CONFIRMED
+URL:https://www.oneflightupjazz.com/
+END:VEVENT
+END:VCALENDAR
