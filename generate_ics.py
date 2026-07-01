@@ -152,6 +152,15 @@ ev("20260727T130000", "20260727T153000",
 
 # ── TUESDAY ────────────────────────────────────────────────────────────────
 
+ev("20260714T190000", "20260714T210000",
+   "Reverie Room — Open Mic Night (2nd Tuesday)",
+   "Reverie Room, 163 W 72nd St (above bodega), Upper West Side, NYC",
+   "2nd Tuesday of each month. Sign-ups 6:30pm, show 7pm. 15 slots, 5 min each. "
+   "Music, comedy, poetry. Alcohol-free. $10 bodega minimum. "
+   "Check @reverieroomnyc on Instagram for exact dates.",
+   "https://www.reverieroomnyc.com/open-mic-night",
+   "FREQ=MONTHLY;BYDAY=2TU")
+
 ev("20260707T193000", "20260707T220000",
    "JazzWahi Weekly Jazz Jam",
    "Kismat Indian Restaurant, 603 Ft. Washington Ave at W. 187 St, Washington Heights, NYC",
@@ -201,6 +210,13 @@ ev("20260701T190000", "20260701T213000",
    "https://www.harlemlatenightjazz.org/harlem-late-night-jazz-weekly-events",
    "FREQ=WEEKLY;BYDAY=WE;UNTIL=20261231T235959Z")
 
+ev("20260701T190000", "20260701T230000",
+   "Corner Lounge — Jazz Jam",
+   "Corner Lounge Bistro, 32 E 130th St (btw 5th & Madison), Harlem, NYC",
+   "Weekly jazz jam. Also Saturdays 7-11pm.",
+   "https://www.harlemonestop.com/event/34689/harlem-harlem-harlem-jazz-night-jam-session",
+   "FREQ=WEEKLY;BYDAY=WE")
+
 ev("20260701T210000", "20260701T230000",
    "Stonewall Inn Piano Bar — 2nd Floor (Wed)",
    "Stonewall Inn, 53 Christopher St, West Village, NYC",
@@ -216,6 +232,15 @@ ev("20260702T170000", "20260702T210000",
    "Hosted by Danielle. Pool table, drink specials, karaoke. 1st floor. No cover.",
    "https://thestonewallinnnyc.com/weekly-events",
    "FREQ=WEEKLY;BYDAY=TH")
+
+ev("20260730T213000", "20260730T233000",
+   "Hit the Stage! — Open Mic Jam at Triad (TENTATIVE)",
+   "Triad Theatre, 158 W 72nd St, Upper West Side, NYC",
+   "TENTATIVE — verify date at fourhandscollective.org before going. "
+   "Hosted by Matt Baker's jazz trio (piano/bass/drums). All styles welcome. "
+   "Bring 3 copies of sheet music with chord symbols. $10 cash cover. Doors 9pm.",
+   "https://fourhandscollective.org/events",
+   "FREQ=MONTHLY;BYDAY=-1TH")
 
 ev("20260702T193000", "20260702T213000",
    "Thursday Open Mic — Music, Comedy, Poetry",
@@ -247,6 +272,15 @@ ev("20260703T223000", "20260704T010000",
    "$30 music room / $20 bar seating + 1 drink minimum.",
    "https://www.oneflightupjazz.com/",
    "FREQ=WEEKLY;BYDAY=FR")
+
+# ── SATURDAY ───────────────────────────────────────────────────────────────
+
+ev("20260704T190000", "20260704T230000",
+   "Corner Lounge — Jazz Jam",
+   "Corner Lounge Bistro, 32 E 130th St (btw 5th & Madison), Harlem, NYC",
+   "Weekly jazz jam. Also Wednesdays 7-11pm.",
+   "https://www.harlemonestop.com/event/34689/harlem-harlem-harlem-jazz-night-jam-session",
+   "FREQ=WEEKLY;BYDAY=SA")
 
 
 # ── BUILD ICS ──────────────────────────────────────────────────────────────
