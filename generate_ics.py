@@ -63,6 +63,14 @@ ev("20260701T234500", "20260702T040000",
 
 # ── SUNDAY ─────────────────────────────────────────────────────────────────
 
+ev("20260705T180000", "20260705T220000",
+   "American Legion Post 398 — Organ Jazz Jam",
+   "American Legion Post 398, 248 W 132nd St, Harlem, NYC",
+   "The Harlem Groove Band. Harlem's last organ jazz house. "
+   "Free (donations welcome). Down a few steps to the ground floor. Sign the book when you arrive.",
+   "https://www.harlemlatenightjazz.org/harlem-late-night-jazz-weekly-events",
+   "FREQ=WEEKLY;BYDAY=SU")
+
 ev("20260705T200000", "20260705T220000",
    "Jazz By Jorei — Free Jazz Jam & Open Mic",
    "Sour Mouse, Lower East Side, NYC",
@@ -71,6 +79,22 @@ ev("20260705T200000", "20260705T220000",
    "FREQ=WEEKLY;BYDAY=SU")
 
 # ── MONDAY ─────────────────────────────────────────────────────────────────
+
+ev("20260706T170000", "20260706T213000",
+   "Arthur's Tavern — Grove Street Stompers (Sit-ins Welcome)",
+   "Arthur's Tavern, 57 Grove St, West Village, NYC",
+   "The Grove Street Stompers have held Monday nights since 1962. "
+   "Dixieland + traditional jazz. Professional and amateur musicians welcome to sit in. "
+   "No cover ever. $15 minimum per person per set. Multiple sets nightly.",
+   "https://arthurstavern.nyc/events/",
+   "FREQ=WEEKLY;BYDAY=MO")
+
+ev("20260706T190000", "20260706T220000",
+   "Phil's House of Blues at Silvana",
+   "Silvana, 300 W 116th St, Harlem, NYC",
+   "Blues/jazz with Phil Young (drums/leader) + rotating A-list collaborators. $10 cover.",
+   "https://jazzgeneration.org/calendar",
+   "FREQ=WEEKLY;BYDAY=MO")
 
 ev("20260706T190000", "20260706T210000",
    "Big Ed's World Famous Blues Jam",
@@ -85,6 +109,14 @@ ev("20260706T200000", "20260706T230000",
    "Doors 7:30pm. Rotating hosts: Allison Lee / Daniel Song (Juilliard-trained). "
    "Sit-in welcome. No music charge.",
    "https://www.fivespotjazz.com/upcomingshows",
+   "FREQ=WEEKLY;BYDAY=MO")
+
+ev("20260706T200000", "20260706T230000",
+   "Gin Mill Speakeasy Sessions",
+   "The Gin Mill, 442 Amsterdam Ave (at 81st St), Upper West Side, NYC",
+   "Free happy hour (well drinks + draft beer) 8-9pm in the underground speakeasy, "
+   "then free live concert 9-11pm. Rotating artists. No cover.",
+   "https://www.theginmillnyc.com/private-events-venue/speakeasy/",
    "FREQ=WEEKLY;BYDAY=MO")
 
 ev("20260706T220000", "20260707T000000",
@@ -120,6 +152,14 @@ ev("20260727T130000", "20260727T153000",
 
 # ── TUESDAY ────────────────────────────────────────────────────────────────
 
+ev("20260707T193000", "20260707T220000",
+   "JazzWahi Weekly Jazz Jam",
+   "Kismat Indian Restaurant, 603 Ft. Washington Ave at W. 187 St, Washington Heights, NYC",
+   "Running since February 2015 (609+ jams as of Feb 2026). Over 800 musicians have played. "
+   "Free, no cover, no minimum. All levels welcome. Music starts when you arrive.",
+   "https://www.jazzwahi.org/jazz-jam",
+   "FREQ=WEEKLY;BYDAY=TU")
+
 ev("20260707T130000", "20260707T180000",
    "Jazzcultural — Barry Harris Institute Free Lesson & Jam",
    "Jazzcultural, 349 W 46th St, Midtown, NYC",
@@ -143,6 +183,23 @@ ev("20260707T210000", "20260707T230000",
    "FREQ=WEEKLY;BYDAY=TU")
 
 # ── WEDNESDAY ──────────────────────────────────────────────────────────────
+
+ev("20260701T160000", "20260701T171500",
+   "JazzWahi Jazz in Bennett Park (Outdoor, April–October)",
+   "Bennett Park, Ft. Washington Ave between W. 183–185 St, Washington Heights, NYC",
+   "Free outdoor jazz jam. April 15 to October 28 only. Weather permitting. "
+   "The highest natural point in Manhattan.",
+   "https://www.jazzwahi.org/jazz-jam",
+   "FREQ=WEEKLY;BYDAY=WE;UNTIL=20261028T235959Z")
+
+ev("20260701T190000", "20260701T213000",
+   "The Lions Den Jam at NAMA (March–December)",
+   "New Amsterdam Musical Association (NAMA), 107 W 130th St, Harlem, NYC",
+   "NYC's best Young Lions jamming with the masters. NAMA founded 1904 — nation's oldest org for Black musicians. "
+   "Curated by Harlem Late Night Jazz + Jazz Foundation of America. "
+   "Email info@harlemlatenightjazz.org for current time.",
+   "https://www.harlemlatenightjazz.org/harlem-late-night-jazz-weekly-events",
+   "FREQ=WEEKLY;BYDAY=WE;UNTIL=20261231T235959Z")
 
 ev("20260701T210000", "20260701T230000",
    "Stonewall Inn Piano Bar — 2nd Floor (Wed)",

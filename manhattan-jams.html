@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manhattan Jam Sessions & Open Mics</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f5f4f0; color: #1a1a1a; min-height: 100vh; padding: 24px 16px 48px;
+  }
+  header { max-width: 900px; margin: 0 auto 24px; }
+  h1 { font-size: 1.55rem; font-weight: 700; letter-spacing: -0.02em; color: #111; }
+  .subtitle { font-size: 0.85rem; color: #666; margin-top: 4px; }
+  .date-bar { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+  #today-label { font-size: 0.95rem; font-weight: 600; color: #1a1a1a; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #e84545; display: inline-block; }
+  .day-nav { display: flex; gap: 6px; flex-wrap: wrap; max-width: 900px; margin: 0 auto 22px; }
+  .day-pill {
+    padding: 6px 14px; border-radius: 20px; border: 1.5px solid #ddd; background: #fff;
+    font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.15s; color: #444;
+  }
+  .day-pill:hover { border-color: #999; color: #111; }
+  .day-pill.active { background: #1a1a1a; border-color: #1a1a1a; color: #fff; }
+  .day-pill.today-pill { border-color: #e84545; color: #e84545; }
+  .day-pill.today-pill.active { background: #e84545; border-color: #e84545; color: #fff; }
+  .show-all-btn {
+    padding: 6px 14px; border-radius: 20px; border: 1.5px dashed #bbb; background: transparent;
+    font-size: 0.8rem; font-weight: 500; cursor: pointer; color: #888; transition: all 0.15s;
+  }
+  .show-all-btn:hover { border-color: #777; color: #444; }
+  .show-all-btn.active { border-color: #555; color: #333; background: #eee; }
+  .day-section { max-width: 900px; margin: 0 auto 24px; display: none; }
+  .day-section.visible { display: block; }
+  .day-heading {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #888; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #e5e5e5;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .today-badge {
+    background: #e84545; color: #fff; font-size: 0.6rem; padding: 2px 7px;
+    border-radius: 10px; letter-spacing: 0.05em;
+  }
+  .events-grid { display: grid; gap: 9px; }
+  .event-card {
+    background: #fff; border-radius: 10px; padding: 13px 15px; border: 1px solid #eee;
+    display: grid; grid-template-columns: 64px 1fr auto; gap: 0 12px; align-items: start;
+    transition: box-shadow 0.15s;
+  }
+  .event-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
+  .event-card.highlight { border-color: #c8e6c9; background: #f9fff9; }
+  .event-card.piano { border-color: #e1d5f5; background: #fdf9ff; }
+  .event-card.karaoke { border-color: #fde8c8; background: #fffaf4; }
+  .event-time { font-size: 0.76rem; font-weight: 700; color: #555; white-space: nowrap; padding-top: 2px; }
+  .event-name { font-size: 0.93rem; font-weight: 600; color: #111; line-height: 1.3; }
+  .event-venue { font-size: 0.8rem; color: #777; margin-top: 3px; }
+  .event-note { font-size: 0.74rem; color: #aaa; margin-top: 4px; font-style: italic; }
+  .event-note a { color: #888; }
+  .venue-link { font-size: 0.74rem; color: #6b9fcc; text-decoration: none; margin-top: 4px; display: inline-block; }
+  .venue-link:hover { text-decoration: underline; }
+  .event-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; padding-top: 2px; }
+  .price-tag { font-size: 0.73rem; font-weight: 600; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+  .price-free { background: #e8f5e9; color: #2e7d32; }
+  .price-paid { background: #fff3e0; color: #e65100; }
+  .price-varies { background: #f3e5f5; color: #6a1b9a; }
+  .price-min { background: #e3f2fd; color: #1565c0; }
+  .type-tag { font-size: 0.67rem; color: #bbb; text-transform: uppercase; letter-spacing: 0.06em; }
+  .freq-tag { font-size: 0.69rem; color: #ccc; }
+  .section-label {
+    font-size: 0.67rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #bbb; font-weight: 600; margin: 14px 0 6px;
+  }
+  .updated-note {
+    max-width: 900px; margin: 0 auto 18px; font-size: 0.75rem; color: #888;
+    background: #fffbf0; border: 1px solid #ffe8a0; border-radius: 8px; padding: 8px 12px;
+  }
+  .sources {
+    max-width: 900px; margin: 32px auto 0; font-size: 0.74rem; color: #aaa;
+    line-height: 1.9; border-top: 1px solid #e5e5e5; padding-top: 14px;
+  }
+  .sources a { color: #888; text-decoration: underline; }
+  .sources a:hover { color: #444; }
+  .legend { max-width: 900px; margin: 0 auto 16px; display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.72rem; color: #888; }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎸 Manhattan Jam Sessions, Open Mics &amp; Piano Bars</h1>
+  <div class="subtitle">Recurring weekly events · Manhattan, NYC · verified from venue websites June 2026</div>
+  <div class="date-bar"><span class="dot"></span><span id="today-label">Loading…</span></div>
+</header>
+
+<div class="updated-note">
+  ⚠️ Always call ahead or check venue sites before going — schedules change. Verified directly from club/venue websites.
+</div>
+
+<div class="legend">
+  <span class="legend-item"><span class="legend-dot" style="background:#e8f5e9;border:1px solid #c8e6c9"></span> Jam Session / Open Mic</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#fdf9ff;border:1px solid #e1d5f5"></span> Piano Bar (sit &amp; listen + sing along)</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#fffaf4;border:1px solid #fde8c8"></span> Karaoke / DJ</span>
+</div>
+
+<div class="day-nav" id="day-nav">
+  <button class="day-pill" data-day="0" onclick="showDay(0)">Sun</button>
+  <button class="day-pill" data-day="1" onclick="showDay(1)">Mon</button>
+  <button class="day-pill" data-day="2" onclick="showDay(2)">Tue</button>
+  <button class="day-pill" data-day="3" onclick="showDay(3)">Wed</button>
+  <button class="day-pill" data-day="4" onclick="showDay(4)">Thu</button>
+  <button class="day-pill" data-day="5" onclick="showDay(5)">Fri</button>
+  <button class="day-pill" data-day="6" onclick="showDay(6)">Sat</button>
+  <button class="show-all-btn" id="show-all-btn" onclick="showAll()">Show all days</button>
+</div>
+
+<!-- ═══ SUNDAY ═══ -->
+<div class="day-section" id="day-0">
+  <div class="day-heading">Sunday <span class="today-badge" id="badge-0" style="display:none">TODAY</span></div>
+  <div class="events-grid">
+
+    <div class="section-label">Afternoon</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">2pm–6pm</div>
+      <div class="event-body">
+        <div class="event-name">Afternoon Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating hosts · recurring daily (verify Sun on site)</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="section-label">Evening</div>
+
+    <div class="event-card piano">
+      <div class="event-time">6:30pm–close</div>
+      <div class="event-body">
+        <div class="event-name">Mimi's Piano Bar — James Scheider</div>
+        <div class="event-venue">Mimi's Restaurant &amp; Piano Bar · 984 2nd Ave (at 52nd St), Midtown East</div>
+        <div class="event-note">Broadway/touring musician. Italian dinner + piano bar. Audience can make requests &amp; sing along. Est. 1956.</div>
+        <a class="venue-link" href="https://www.mimisnyc.com/about" target="_blank">↗ mimisnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">Dinner/drinks</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">8pm</div>
+      <div class="event-body">
+        <div class="event-name">Jazz By Jorei — Free Jazz Jam &amp; Open Mic</div>
+        <div class="event-venue">Sour Mouse · Lower East Side</div>
+        <div class="event-note">Singers &amp; musicians welcome to sign up or sit in</div>
+        <a class="venue-link" href="https://donyc.com/events/weekly/sun/free-jazz-jam-open-mic-every-sunday-tickets" target="_blank">↗ donyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam / Open Mic</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">6pm–10pm</div>
+      <div class="event-body">
+        <div class="event-name">American Legion Post 398 — Organ Jazz Jam</div>
+        <div class="event-venue">American Legion Post 398 · 248 W 132nd St, Harlem</div>
+        <div class="event-note">The Harlem Groove Band. Harlem's last organ jazz house. Organist-led jam session. Free (donations welcome). Down a few steps to the ground floor — sign the book when you arrive.</div>
+        <a class="venue-link" href="https://www.harlemlatenightjazz.org/harlem-late-night-jazz-weekly-events" target="_blank">↗ harlemlatenightjazz.org</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span><span class="freq-tag">Weekly Sun</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">TBD</div>
+      <div class="event-body">
+        <div class="event-name">Sugar Mouse Jazz Jams</div>
+        <div class="event-venue">Sugar Mouse NYC · check site for time</div>
+        <div class="event-note">Also Mon &amp; Tue</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="event-card piano">
+      <div class="event-time">9pm</div>
+      <div class="event-body">
+        <div class="event-name">The Invasion — Weekly Drag Spectacular</div>
+        <div class="event-venue">Stonewall Inn · 53 Christopher St, West Village</div>
+        <div class="event-note">Different queen &amp; guests each week. 2nd floor. No cover.</div>
+        <a class="venue-link" href="https://thestonewallinnnyc.com/weekly-events" target="_blank">↗ stonewallinnnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">No cover</span><span class="type-tag">Drag Show</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="section-label">Late Night</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">10pm–12am</div>
+      <div class="event-body">
+        <div class="event-name">Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating pianist hosts · recurring nightly</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">11:45pm–4am</div>
+      <div class="event-body">
+        <div class="event-name">Late Night Jam Session</div>
+        <div class="event-venue">Smalls Jazz Club · 183 W 10th St, West Village</div>
+        <div class="event-note">Rotating hosts nightly — check site for tonight's leader</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ MONDAY ═══ -->
+<div class="day-section" id="day-1">
+  <div class="day-heading">Monday <span class="today-badge" id="badge-1" style="display:none">TODAY</span></div>
+  <div class="events-grid">
+
+    <div class="section-label">Daytime</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">2pm–6pm</div>
+      <div class="event-body">
+        <div class="event-name">Afternoon Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating hosts — confirmed Mon Jun 29: Carol Morgan (trumpet)</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Recurring</span></div>
+    </div>
+
+    <div class="section-label">Evening</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">5pm+</div>
+      <div class="event-body">
+        <div class="event-name">Arthur's Tavern — Grove Street Stompers (Sit-ins Welcome)</div>
+        <div class="event-venue">Arthur's Tavern · 57 Grove St, West Village</div>
+        <div class="event-note">The Grove Street Stompers have held Monday nights since 1962. Dixieland + traditional jazz. Professional and amateur musicians welcome to sit in. No cover ever. $15 min/set. Multiple sets nightly.</div>
+        <a class="venue-link" href="https://arthurstavern.nyc/events/" target="_blank">↗ arthurstavern.nyc</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">No cover</span><span class="type-tag">Jam / Sit-in</span><span class="freq-tag">Weekly Mon</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">4pm+</div>
+      <div class="event-body">
+        <div class="event-name">Don't Tell Mama Piano Bar — Happy Hour</div>
+        <div class="event-venue">Don't Tell Mama · 343 W 46th St, Hell's Kitchen</div>
+        <div class="event-note">Pianist from 5pm. Singing wait staff from 9pm. <strong>Open Mic in Cabaret Room Monday nights.</strong> No cover, 2-drink min.</div>
+        <a class="venue-link" href="https://shows.donttellmamanyc.com/piano-bar" target="_blank">↗ donttellmamanyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">2-drink min</span><span class="type-tag">Piano Bar / Open Mic</span><span class="freq-tag">Daily</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">7pm–10pm</div>
+      <div class="event-body">
+        <div class="event-name">Phil's House of Blues at Silvana</div>
+        <div class="event-venue">Silvana · 300 W 116th St, Harlem</div>
+        <div class="event-note">Blues/jazz jam with Phil Young (drums/leader) + rotating A-list collaborators (Beverly Crosby vocals, John Smith guitar, Tommy Morimoto sax). $10 cover.</div>
+        <a class="venue-link" href="https://jazzgeneration.org/calendar" target="_blank">↗ jazzgeneration.org</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-paid">$10</span><span class="type-tag">Jam / Live Music</span><span class="freq-tag">Weekly Mon</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">7pm</div>
+      <div class="event-body">
+        <div class="event-name">Inspired Word Open Mic</div>
+        <div class="event-venue">The Parkside Lounge · 317 E Houston St</div>
+        <div class="event-note">Poets, comedians, musicians, storytellers · 21+ · $8–10 + 2 drinks</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-paid">$8–10</span><span class="type-tag">Open Mic</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">7pm</div>
+      <div class="event-body">
+        <div class="event-name">Big Ed's World Famous Blues Jam</div>
+        <div class="event-venue">The Red Lion · 151 Bleecker St, Greenwich Village</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-paid">$10</span><span class="type-tag">Jam</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">8pm–11pm</div>
+      <div class="event-body">
+        <div class="event-name">Monday Night Jam Session — No Music Charge</div>
+        <div class="event-venue">Five Spot Jazz · 231 E 9th St, East Village (Hi-Collar by day)</div>
+        <div class="event-note">Doors 7:30pm · Rotating hosts: Allison Lee / Daniel Song (Juilliard). Sit-in welcome.</div>
+        <a class="venue-link" href="https://www.fivespotjazz.com/upcomingshows" target="_blank">↗ fivespotjazz.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">8pm</div>
+      <div class="event-body">
+        <div class="event-name">Sour Mouse Jazz Jams</div>
+        <div class="event-venue">Sour Mouse · Lower East Side</div>
+        <div class="event-note">Also Wed &amp; Sat</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">8pm</div>
+      <div class="event-body">
+        <div class="event-name">Random Strangers Jam @ Shrine</div>
+        <div class="event-venue">Shrine World Music Venue · 2271 Adam Clayton Powell Jr Blvd, Harlem</div>
+        <div class="event-note">Last Monday of the month only</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span><span class="freq-tag">Last Mon</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">TBD</div>
+      <div class="event-body">
+        <div class="event-name">Sugar Mouse Jazz Jams</div>
+        <div class="event-venue">Sugar Mouse NYC · check site for time</div>
+        <div class="event-note">Also Tue &amp; Sun</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">8pm–11pm</div>
+      <div class="event-body">
+        <div class="event-name">Gin Mill Speakeasy Sessions</div>
+        <div class="event-venue">The Gin Mill · 442 Amsterdam Ave (at 81st St), Upper West Side</div>
+        <div class="event-note">Free happy hour (well drinks + draft beer) 8–9pm in the underground speakeasy, then free live concert 9–11pm. Rotating artists: Augie Haas, Wayne Wilson, Jim Campilongo and others. No cover.</div>
+        <a class="venue-link" href="https://www.theginmillnyc.com/private-events-venue/speakeasy/" target="_blank">↗ theginmillnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Live Music</span><span class="freq-tag">Weekly Mon</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">10pm</div>
+      <div class="event-body">
+        <div class="event-name">Richie Cannata's Monday Night Jam</div>
+        <div class="event-venue">The Bitter End · 147 Bleecker St, Greenwich Village</div>
+        <div class="event-note">Billy Joel's saxophonist hosts</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-paid">$12</span><span class="type-tag">Jam</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="section-label">Late Night</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">9:30pm</div>
+      <div class="event-body">
+        <div class="event-name">Jim Caruso's Cast Party</div>
+        <div class="event-venue">Birdland · 315 W 44th St, Midtown (Hell's Kitchen)</div>
+        <div class="event-note">Legendary weekly open mic variety show since 1993. Bring your sheet music — sing with house band (Billy Stritch piano, Steve Doyle bass, Daniel Glass drums). Broadway stars + newcomers welcome.</div>
+        <a class="venue-link" href="https://www.birdlandjazz.com/tm-event/jim-carusos-cast-party/" target="_blank">↗ birdlandjazz.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-paid">Cover + min</span><span class="type-tag">Open Mic</span><span class="freq-tag">Weekly Mon</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">~10:30pm</div>
+      <div class="event-body">
+        <div class="event-name">Monday Night Jam Session (after headliners)</div>
+        <div class="event-venue">Smoke Jazz &amp; Supper Club · 2751 Broadway (at 106th St), Upper West Side</div>
+        <div class="event-note">Jam begins after the 8:30pm headliner set. Shows start 6:30pm + 8:30pm. Check site for musicians.</div>
+        <a class="venue-link" href="https://smokejazz.com/" target="_blank">↗ smokejazz.com · (212) 864-6662</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Cover + min</span><span class="type-tag">Jam</span><span class="freq-tag">Weekly Mon</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">10pm–12am</div>
+      <div class="event-body">
+        <div class="event-name">Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Mon Jun 29: Wilfie Williams (piano) · Recurring nightly</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">11:59pm</div>
+      <div class="event-body">
+        <div class="event-name">Producer Mondays</div>
+        <div class="event-venue">Nublu · 62 Ave C, East Village</div>
+        <div class="event-note">Late-night producer/musician jam</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-paid">$20</span><span class="type-tag">Jam</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">11:45pm–4am</div>
+      <div class="event-body">
+        <div class="event-name">Late Night Jam Session</div>
+        <div class="event-venue">Smalls Jazz Club · 183 W 10th St, West Village</div>
+        <div class="event-note">Mon Jun 29 host: Adam Ray (drums) · Rotating nightly</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">varies</div>
+      <div class="event-body">
+        <div class="event-name">Jazz Foundation Monday Night Jam</div>
+        <div class="event-venue">Musicians Union · Midtown Manhattan</div>
+        <div class="event-note">Monthly — remaining 2026: Jul 27, Aug 24, Sep 28, Oct 26, Nov 23</div>
+        <a class="venue-link" href="https://jazzfoundation.org/monday-night-jam/" target="_blank">↗ jazzfoundation.org</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span><span class="freq-tag">Monthly</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ TUESDAY ═══ -->
+<div class="day-section" id="day-2">
+  <div class="day-heading">Tuesday <span class="today-badge" id="badge-2" style="display:none">TODAY</span></div>
+  <div class="events-grid">
+
+    <div class="section-label">Daytime</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">1pm–6pm</div>
+      <div class="event-body">
+        <div class="event-name">Barry Harris Institute — Free Piano Lesson &amp; Jam</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Tue Jun 30: Richard Clements (piano). Free admission. Confirmed recurring Tuesdays.</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam / Lesson</span><span class="freq-tag">Recurring Tue</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">2pm–6pm</div>
+      <div class="event-body">
+        <div class="event-name">Afternoon Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating hosts · confirmed recurring daily</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Recurring</span></div>
+    </div>
+
+    <div class="section-label">Evening</div>
+
+    <div class="event-card">
+      <div class="event-time">4pm+</div>
+      <div class="event-body">
+        <div class="event-name">Don't Tell Mama Piano Bar</div>
+        <div class="event-venue">Don't Tell Mama · 343 W 46th St, Hell's Kitchen</div>
+        <div class="event-note">Live pianist 5–9pm. Singing staff + open mic (audience) 9:30pm–2:30am. No cover, 2-drink min.</div>
+        <a class="venue-link" href="https://shows.donttellmamanyc.com/piano-bar" target="_blank">↗ donttellmamanyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">2-drink min</span><span class="type-tag">Piano Bar / Open Mic</span><span class="freq-tag">Daily</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">5pm</div>
+      <div class="event-body">
+        <div class="event-name">Open Mic at Housing Works Bookstore</div>
+        <div class="event-venue">Housing Works Bookstore Café · 126 Crosby St, SoHo</div>
+        <div class="event-note">All art forms: comedy, poetry, music, performance · Happy Hour</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Open Mic</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">6pm</div>
+      <div class="event-body">
+        <div class="event-name">Open Mic Night</div>
+        <div class="event-venue">Paddy Reilly's Music Bar · 519 2nd Ave (at 29th St)</div>
+        <div class="event-note">Sign up at 6pm · all genres</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Open Mic</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card piano">
+      <div class="event-time">6:30–9:30pm</div>
+      <div class="event-body">
+        <div class="event-name">Mimi's Piano Bar — James Scheider</div>
+        <div class="event-venue">Mimi's Restaurant &amp; Piano Bar · 984 2nd Ave (at 52nd St)</div>
+        <div class="event-note">Dinner + piano bar. Requests welcome, sing along encouraged.</div>
+        <a class="venue-link" href="https://www.mimisnyc.com/about" target="_blank">↗ mimisnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">Dinner/drinks</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card piano">
+      <div class="event-time">9pm – 2nd floor</div>
+      <div class="event-body">
+        <div class="event-name">Stonewall Inn Piano Bar</div>
+        <div class="event-venue">Stonewall Inn · 53 Christopher St, West Village</div>
+        <div class="event-note">Special guest pianists + singing waitstaff &amp; bartenders. Also Wed 9pm. No cover.</div>
+        <a class="venue-link" href="https://thestonewallinnnyc.com/weekly-events" target="_blank">↗ stonewallinnnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">No cover</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Tue &amp; Wed</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">TBD</div>
+      <div class="event-body">
+        <div class="event-name">Sugar Mouse Jazz Jams</div>
+        <div class="event-venue">Sugar Mouse NYC · check site</div>
+        <div class="event-note">Also Mon &amp; Sun</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">9pm</div>
+      <div class="event-body">
+        <div class="event-name">Mona's Tuesday Night Hot Jazz</div>
+        <div class="event-venue">Mona's · 224 Ave B, East Village</div>
+        <div class="event-note">Open jam starts ~11pm · call ahead to confirm</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span><span class="freq-tag">Call Ahead</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">9:30pm–2:30am</div>
+      <div class="event-body">
+        <div class="event-name">Don't Tell Mama — Audience Open Mic at Piano Bar</div>
+        <div class="event-venue">Don't Tell Mama · 343 W 46th St, Hell's Kitchen</div>
+        <div class="event-note">Write your name + song on a napkin and hand to server or pianist. Happens every night.</div>
+        <a class="venue-link" href="https://shows.donttellmamanyc.com/piano-bar" target="_blank">↗ donttellmamanyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">2-drink min</span><span class="type-tag">Open Mic</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+    <div class="section-label">Late Night</div>
+
+    <div class="event-card piano">
+      <div class="event-time">9:30pm–close</div>
+      <div class="event-body">
+        <div class="event-name">Mimi's Piano Bar — Aaron Glenn</div>
+        <div class="event-venue">Mimi's Restaurant &amp; Piano Bar · 984 2nd Ave (at 52nd St)</div>
+        <div class="event-note">Continues from James Scheider set at 9:30. Late crowd, requests welcome.</div>
+        <a class="venue-link" href="https://www.mimisnyc.com/about" target="_blank">↗ mimisnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">Drinks</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">10pm–12am</div>
+      <div class="event-body">
+        <div class="event-name">Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Tue Jun 30: Marc Devine (piano) · Recurring nightly</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">11:45pm–4am</div>
+      <div class="event-body">
+        <div class="event-name">Late Night Jam Session</div>
+        <div class="event-venue">Smalls Jazz Club · 183 W 10th St, West Village</div>
+        <div class="event-note">Tue Jun 30 host: Andrew Wagner (trumpet) · Rotating nightly</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">7:30pm–10pm</div>
+      <div class="event-body">
+        <div class="event-name">JazzWahi Weekly Jazz Jam</div>
+        <div class="event-venue">Kismat Indian Restaurant · 603 Ft. Washington Ave at W. 187 St, Washington Heights</div>
+        <div class="event-note">Running since February 2015 (609+ jams as of Feb 2026). 800+ musicians have played. Free, no cover, no minimum. "Music starts when you arrive" — no long opening set. All levels welcome.</div>
+        <a class="venue-link" href="https://www.jazzwahi.org/jazz-jam" target="_blank">↗ jazzwahi.org</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span><span class="freq-tag">Weekly Tue</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">Tuesday</div>
+      <div class="event-body">
+        <div class="event-name">Melba's Tuesday Night Live Music Jam</div>
+        <div class="event-venue">Melba's · 300 W 114th St, Harlem</div>
+        <div class="event-note">Live music jam session with soul food + DJ + dancing over dinner. Small venue — reservations recommended. Call (212) 864-7777.</div>
+        <a class="venue-link" href="https://www.melbasrestaurant.com/" target="_blank">↗ melbasrestaurant.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Dinner pricing</span><span class="type-tag">Jam / Live Music</span><span class="freq-tag">Weekly Tue</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ WEDNESDAY ═══ -->
+<div class="day-section" id="day-3">
+  <div class="day-heading">Wednesday <span class="today-badge" id="badge-3" style="display:none">TODAY</span></div>
+  <div class="events-grid">
+
+    <div class="section-label">Daytime</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">2pm–6pm</div>
+      <div class="event-body">
+        <div class="event-name">Afternoon Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating hosts · recurring daily</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="section-label">Evening</div>
+
+    <div class="event-card">
+      <div class="event-time">4pm+</div>
+      <div class="event-body">
+        <div class="event-name">Don't Tell Mama Piano Bar</div>
+        <div class="event-venue">Don't Tell Mama · 343 W 46th St, Hell's Kitchen</div>
+        <div class="event-note">Live pianist 5–9pm. Singing staff + audience open mic 9:30pm–2:30am. No cover, 2-drink min.</div>
+        <a class="venue-link" href="https://shows.donttellmamanyc.com/piano-bar" target="_blank">↗ donttellmamanyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">2-drink min</span><span class="type-tag">Piano Bar / Open Mic</span><span class="freq-tag">Daily</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">4pm–5:15pm</div>
+      <div class="event-body">
+        <div class="event-name">JazzWahi Jazz in Bennett Park (Outdoor)</div>
+        <div class="event-venue">Bennett Park · Ft. Washington Ave between W. 183–185 St, Washington Heights</div>
+        <div class="event-note">Free outdoor jazz jam. April 15 – October 28. Weather permitting. The highest natural point in Manhattan.</div>
+        <a class="venue-link" href="https://www.jazzwahi.org/jazz-jam" target="_blank">↗ jazzwahi.org</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span><span class="freq-tag">Apr–Oct Wed</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">6pm</div>
+      <div class="event-body">
+        <div class="event-name">Otto's 1st &amp; 3rd Wednesday Open Mic</div>
+        <div class="event-venue">Otto's Shrunken Head · 538 E 14th St, East Village</div>
+        <div class="event-note">1st and 3rd Wednesdays only</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Open Mic</span><span class="freq-tag">Bi-monthly</span></div>
+    </div>
+
+    <div class="event-card piano">
+      <div class="event-time">6:30–9:30pm</div>
+      <div class="event-body">
+        <div class="event-name">Mimi's Piano Bar — Jacob Khalil</div>
+        <div class="event-venue">Mimi's Restaurant &amp; Piano Bar · 984 2nd Ave (at 52nd St)</div>
+        <div class="event-note">Original artist, regular at Birdland. Dinner + piano bar. Requests welcome.</div>
+        <a class="venue-link" href="https://www.mimisnyc.com/about" target="_blank">↗ mimisnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">Dinner/drinks</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">8pm</div>
+      <div class="event-body">
+        <div class="event-name">Sour Mouse Jazz Jams</div>
+        <div class="event-venue">Sour Mouse · Lower East Side</div>
+        <div class="event-note">Also Mon &amp; Sat</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">TBD</div>
+      <div class="event-body">
+        <div class="event-name">Occasional Open Mic</div>
+        <div class="event-venue">Sugar Mouse NYC · check site</div>
+        <div class="event-note">Also Mon — not every week, verify before going</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Open Mic</span><span class="freq-tag">Occasional</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">Evening</div>
+      <div class="event-body">
+        <div class="event-name">The Lions Den Jam at NAMA</div>
+        <div class="event-venue">New Amsterdam Musical Association (NAMA) · 107 W 130th St, Harlem</div>
+        <div class="event-note">March–December only. NYC's best "Young Lions" jamming with the masters. NAMA is the nation's oldest organization for Black musicians (founded 1904). Curated by Harlem Late Night Jazz + Jazz Foundation of America. Email info@harlemlatenightjazz.org for exact time.</div>
+        <a class="venue-link" href="https://www.harlemlatenightjazz.org/harlem-late-night-jazz-weekly-events" target="_blank">↗ harlemlatenightjazz.org</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span><span class="freq-tag">Mar–Dec Wed</span></div>
+    </div>
+
+    <div class="event-card piano">
+      <div class="event-time">9pm – 2nd floor</div>
+      <div class="event-body">
+        <div class="event-name">Stonewall Inn Piano Bar</div>
+        <div class="event-venue">Stonewall Inn · 53 Christopher St, West Village</div>
+        <div class="event-note">Special guest pianists + singing waitstaff &amp; bartenders. Also Tue 9pm. No cover.</div>
+        <a class="venue-link" href="https://thestonewallinnnyc.com/weekly-events" target="_blank">↗ stonewallinnnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">No cover</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Tue &amp; Wed</span></div>
+    </div>
+
+    <div class="section-label">Late Night</div>
+
+    <div class="event-card piano">
+      <div class="event-time">9:30pm–close</div>
+      <div class="event-body">
+        <div class="event-name">Mimi's Piano Bar — Will</div>
+        <div class="event-venue">Mimi's Restaurant &amp; Piano Bar · 984 2nd Ave</div>
+        <div class="event-note">Late crowd continues from Jacob Khalil set</div>
+        <a class="venue-link" href="https://www.mimisnyc.com/about" target="_blank">↗ mimisnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">Drinks</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">10pm–12am</div>
+      <div class="event-body">
+        <div class="event-name">Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating pianist hosts · recurring nightly</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">11:45pm–4am</div>
+      <div class="event-body">
+        <div class="event-name">Late Night Jam Session</div>
+        <div class="event-venue">Smalls Jazz Club · 183 W 10th St, West Village</div>
+        <div class="event-note">Rotating hosts nightly — check site</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ THURSDAY ═══ -->
+<div class="day-section" id="day-4">
+  <div class="day-heading">Thursday <span class="today-badge" id="badge-4" style="display:none">TODAY</span></div>
+  <div class="events-grid">
+
+    <div class="section-label">Daytime</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">2pm–6pm</div>
+      <div class="event-body">
+        <div class="event-name">Afternoon Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating hosts · recurring daily</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="section-label">Evening</div>
+
+    <div class="event-card">
+      <div class="event-time">4pm+</div>
+      <div class="event-body">
+        <div class="event-name">Don't Tell Mama Piano Bar</div>
+        <div class="event-venue">Don't Tell Mama · 343 W 46th St, Hell's Kitchen</div>
+        <div class="event-note">Live pianist 5–9pm. Singing staff + audience open mic 9:30pm–2:30am. No cover, 2-drink min.</div>
+        <a class="venue-link" href="https://shows.donttellmamanyc.com/piano-bar" target="_blank">↗ donttellmamanyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">2-drink min</span><span class="type-tag">Piano Bar / Open Mic</span><span class="freq-tag">Daily</span></div>
+    </div>
+
+    <div class="event-card karaoke">
+      <div class="event-time">5pm</div>
+      <div class="event-body">
+        <div class="event-name">The Eight Ball Lounge — Pool &amp; Karaoke</div>
+        <div class="event-venue">Stonewall Inn · 53 Christopher St, West Village</div>
+        <div class="event-note">Hosted by Danielle. Pool table, drink specials, karaoke. 1st floor. No cover.</div>
+        <a class="venue-link" href="https://thestonewallinnnyc.com/weekly-events" target="_blank">↗ stonewallinnnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">No cover</span><span class="type-tag">Karaoke</span><span class="freq-tag">Weekly Thu</span></div>
+    </div>
+
+    <div class="event-card piano">
+      <div class="event-time">6:30–9:30pm</div>
+      <div class="event-body">
+        <div class="event-name">Mimi's Piano Bar — Jerry (Gerald Delet)</div>
+        <div class="event-venue">Mimi's Restaurant &amp; Piano Bar · 984 2nd Ave (at 52nd St)</div>
+        <div class="event-note">Career manager of Kool &amp; The Gang &amp; The Manhattans turned performer. Also Sat 6:30pm.</div>
+        <a class="venue-link" href="https://www.mimisnyc.com/about" target="_blank">↗ mimisnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">Dinner/drinks</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">7:30pm</div>
+      <div class="event-body">
+        <div class="event-name">Thursday Open Mic — Music, Comedy, Poetry</div>
+        <div class="event-venue">The Music Inn · 169 W 4th St, Greenwich Village</div>
+        <div class="event-note">Line up early to sign up</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Open Mic</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">8pm</div>
+      <div class="event-body">
+        <div class="event-name">Open Mic</div>
+        <div class="event-venue">Ashford &amp; Simpson's Sugar Bar · 254 W 72nd St, Upper West Side</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-paid">$15</span><span class="type-tag">Open Mic</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="section-label">Late Night</div>
+
+    <div class="event-card piano">
+      <div class="event-time">9:30pm–close</div>
+      <div class="event-body">
+        <div class="event-name">Mimi's Piano Bar — Jacob Khalil</div>
+        <div class="event-venue">Mimi's Restaurant &amp; Piano Bar · 984 2nd Ave</div>
+        <div class="event-note">Late set continues from Jerry</div>
+        <a class="venue-link" href="https://www.mimisnyc.com/about" target="_blank">↗ mimisnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">Drinks</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">10pm–12am</div>
+      <div class="event-body">
+        <div class="event-name">Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating pianist hosts · recurring nightly</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">11:45pm–4am</div>
+      <div class="event-body">
+        <div class="event-name">Late Night Jam Session</div>
+        <div class="event-venue">Smalls Jazz Club · 183 W 10th St, West Village</div>
+        <div class="event-note">Rotating hosts nightly — check site</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ FRIDAY ═══ -->
+<div class="day-section" id="day-5">
+  <div class="day-heading">Friday <span class="today-badge" id="badge-5" style="display:none">TODAY</span></div>
+  <div class="events-grid">
+
+    <div class="section-label">Daytime</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">2pm–6pm</div>
+      <div class="event-body">
+        <div class="event-name">Afternoon Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating hosts · recurring daily</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="section-label">Evening</div>
+
+    <div class="event-card">
+      <div class="event-time">4pm+</div>
+      <div class="event-body">
+        <div class="event-name">Don't Tell Mama Piano Bar</div>
+        <div class="event-venue">Don't Tell Mama · 343 W 46th St, Hell's Kitchen</div>
+        <div class="event-note">Live pianist 5–9pm. Singing staff + audience open mic 9:30pm–2:30am. No cover, 2-drink min.</div>
+        <a class="venue-link" href="https://shows.donttellmamanyc.com/piano-bar" target="_blank">↗ donttellmamanyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">2-drink min</span><span class="type-tag">Piano Bar / Open Mic</span><span class="freq-tag">Daily</span></div>
+    </div>
+
+    <div class="event-card karaoke">
+      <div class="event-time">6pm</div>
+      <div class="event-body">
+        <div class="event-name">Karaoke with Jazz &amp; DJ Chauncey D</div>
+        <div class="event-venue">Stonewall Inn · 53 Christopher St, West Village</div>
+        <div class="event-note">2nd floor. No cover.</div>
+        <a class="venue-link" href="https://thestonewallinnnyc.com/weekly-events" target="_blank">↗ stonewallinnnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">No cover</span><span class="type-tag">Karaoke</span><span class="freq-tag">Weekly Fri</span></div>
+    </div>
+
+    <div class="event-card piano">
+      <div class="event-time">6:30–9:30pm</div>
+      <div class="event-body">
+        <div class="event-name">Mimi's Piano Bar — Izzy</div>
+        <div class="event-venue">Mimi's Restaurant &amp; Piano Bar · 984 2nd Ave (at 52nd St)</div>
+        <div class="event-note">Plus Aaron Glenn 9:30pm–close. Dinner + piano bar, requests welcome.</div>
+        <a class="venue-link" href="https://www.mimisnyc.com/about" target="_blank">↗ mimisnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">Dinner/drinks</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">TBD</div>
+      <div class="event-body">
+        <div class="event-name">Unplugged Jam: Acoustic Session</div>
+        <div class="event-venue">Music Makers · check site for location &amp; time</div>
+        <div class="event-note">Reserve in advance</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-paid">$40</span><span class="type-tag">Jam</span><span class="freq-tag">Check site</span></div>
+    </div>
+
+    <div class="section-label">Late Night</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">10pm–12am</div>
+      <div class="event-body">
+        <div class="event-name">Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating pianist hosts · recurring nightly</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">10:30pm–1am</div>
+      <div class="event-body">
+        <div class="event-name">Friday Night Jam Session</div>
+        <div class="event-venue">One Flight Up · 108 Greenwich St, Financial District</div>
+        <div class="event-note">Open Wed–Sat. Confirmed weekly Friday jam after 7pm + 9pm sets. $30 music room / $20 bar seating + 1 drink min.</div>
+        <a class="venue-link" href="https://www.oneflightupjazz.com/" target="_blank">↗ oneflightupjazz.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Weekly Fri</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">11:45pm–4am</div>
+      <div class="event-body">
+        <div class="event-name">Late Night Jam Session</div>
+        <div class="event-venue">Smalls Jazz Club · 183 W 10th St, West Village</div>
+        <div class="event-note">Rotating hosts nightly — check site</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ SATURDAY ═══ -->
+<div class="day-section" id="day-6">
+  <div class="day-heading">Saturday <span class="today-badge" id="badge-6" style="display:none">TODAY</span></div>
+  <div class="events-grid">
+
+    <div class="section-label">Daytime</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">2pm–6pm</div>
+      <div class="event-body">
+        <div class="event-name">Afternoon Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating hosts · recurring daily</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="section-label">Evening</div>
+
+    <div class="event-card">
+      <div class="event-time">4pm+</div>
+      <div class="event-body">
+        <div class="event-name">Don't Tell Mama Piano Bar</div>
+        <div class="event-venue">Don't Tell Mama · 343 W 46th St, Hell's Kitchen</div>
+        <div class="event-note">Live pianist 5–9pm. Singing staff + audience open mic 9:30pm–2:30am. No cover, 2-drink min.</div>
+        <a class="venue-link" href="https://shows.donttellmamanyc.com/piano-bar" target="_blank">↗ donttellmamanyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">2-drink min</span><span class="type-tag">Piano Bar / Open Mic</span><span class="freq-tag">Daily</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">6pm</div>
+      <div class="event-body">
+        <div class="event-name">Funkadelic Open Jam</div>
+        <div class="event-venue">Funkadelic · verify current address before going</div>
+        <div class="event-note">All genres welcome</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-paid">$20</span><span class="type-tag">Jam</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card piano">
+      <div class="event-time">6:30–9:30pm</div>
+      <div class="event-body">
+        <div class="event-name">Mimi's Piano Bar — Jerry (Gerald Delet)</div>
+        <div class="event-venue">Mimi's Restaurant &amp; Piano Bar · 984 2nd Ave (at 52nd St)</div>
+        <div class="event-note">Also Thu 6:30pm. Plus Aaron Glenn 9:30pm–close. Dinner + piano bar, requests welcome.</div>
+        <a class="venue-link" href="https://www.mimisnyc.com/about" target="_blank">↗ mimisnyc.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-min">Dinner/drinks</span><span class="type-tag">Piano Bar</span><span class="freq-tag">Weekly</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">8pm</div>
+      <div class="event-body">
+        <div class="event-name">Sour Mouse Jazz Jams</div>
+        <div class="event-venue">Sour Mouse · Lower East Side</div>
+        <div class="event-note">Also Mon &amp; Wed</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-free">Free</span><span class="type-tag">Jam</span></div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">TBD</div>
+      <div class="event-body">
+        <div class="event-name">Music Makers Reserve Jam</div>
+        <div class="event-venue">Music Makers · check site</div>
+        <div class="event-note">Reserve in advance</div>
+      </div>
+      <div class="event-meta"><span class="price-tag price-paid">$60</span><span class="type-tag">Jam</span><span class="freq-tag">Check site</span></div>
+    </div>
+
+    <div class="section-label">Late Night</div>
+
+    <div class="event-card highlight">
+      <div class="event-time">10pm–12am</div>
+      <div class="event-body">
+        <div class="event-name">Jam in the Cafe</div>
+        <div class="event-venue">Jazzcultural · 349 W 46th St, Midtown</div>
+        <div class="event-note">Rotating pianist hosts · recurring nightly</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">10:30pm+</div>
+      <div class="event-body">
+        <div class="event-name">Jam Session (after sets)</div>
+        <div class="event-venue">One Flight Up · 108 Greenwich St, Financial District</div>
+        <div class="event-note">Open Wed–Sat. Check site for Sat jam availability — Friday jam is confirmed weekly.</div>
+        <a class="venue-link" href="https://www.oneflightupjazz.com/" target="_blank">↗ oneflightupjazz.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Fri confirmed; Sat verify</span></div>
+    </div>
+
+    <div class="event-card highlight">
+      <div class="event-time">11:45pm–4am</div>
+      <div class="event-body">
+        <div class="event-name">Late Night Jam Session</div>
+        <div class="event-venue">Smalls Jazz Club · 183 W 10th St, West Village</div>
+        <div class="event-note">Rotating hosts nightly — check site</div>
+        <a class="venue-link" href="https://www.smallslive.com" target="_blank">↗ smallslive.com</a>
+      </div>
+      <div class="event-meta"><span class="price-tag price-varies">Check site</span><span class="type-tag">Jam</span><span class="freq-tag">Nightly</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Notes -->
+<div style="max-width:900px;margin:20px auto 0;font-size:0.77rem;color:#999;border:1px solid #eee;border-radius:8px;padding:12px 15px;background:#fafafa;line-height:1.7;">
+  <strong style="color:#888;">ℹ️ Checked but no open jam/open mic found:</strong><br>
+  <strong>The Pocket</strong> (130 W 46th St) — curated booked shows only ·
+  <strong>Corner Social</strong> (321 Malcolm X Blvd, Harlem) — restaurant/bar, no regular open sessions confirmed ·
+  <strong>The Corner Lounge</strong> (Harlem) — had a Samara Joy–curated Harlem Jazz Series Wed/Sat in May 2026, appears to have been a limited run; check Instagram for current programming ·
+  <strong>Mezzrow</strong> (163 W 10th St) — booked shows + late Vinyl After Hours (DJ/listening, not open jam) ·
+  <strong>The Duplex</strong> (61 Christopher St) — piano bar with open mic nightly after 9pm; also Singer Showcase Mon or Thu; verify current schedule at (212) 255-5438 ·
+  <strong>Russian Vodka Room</strong> (265 W 52nd St) — live jazz piano Sundays, curated (not open jam/sit-in) ·
+  <strong>PennyJo's</strong> (uptown) — live music 5 nights/week, no cover; schedule varies, check <a href="https://www.instagram.com/pennyjosuptown/" target="_blank">@pennyjosuptown</a> ·
+  <strong>Groove / Club Groove NYC</strong> (125 MacDougal St) — live music Tue–Sun, open mic listed but schedule varies, check <a href="https://www.clubgroovenyc.com/music-calendar" target="_blank">clubgroovenyc.com</a>
+</div>
+
+<div class="sources">
+  <strong>Sources — verified directly from venue websites, June 2026:</strong><br>
+  <a href="https://www.smallslive.com" target="_blank">SmallsLIVE (Smalls + Jazzcultural + Mezzrow)</a> ·
+  <a href="https://www.fivespotjazz.com/upcomingshows" target="_blank">Five Spot Jazz</a> ·
+  <a href="https://www.oneflightupjazz.com/" target="_blank">One Flight Up</a> ·
+  <a href="https://shows.donttellmamanyc.com/piano-bar" target="_blank">Don't Tell Mama</a> ·
+  <a href="https://www.mimisnyc.com/about" target="_blank">Mimi's Restaurant &amp; Piano Bar</a> ·
+  <a href="https://thestonewallinnnyc.com/weekly-events" target="_blank">Stonewall Inn weekly events</a> ·
+  <a href="https://smokejazz.com/" target="_blank">Smoke Jazz Club</a> ·
+  <a href="https://www.birdlandjazz.com/tm-event/jim-carusos-cast-party/" target="_blank">Birdland — Jim Caruso's Cast Party</a> ·
+  <a href="https://www.melbasrestaurant.com/" target="_blank">Melba's Restaurant</a> ·
+  <a href="https://www.randomstrangersjam.com/findajam" target="_blank">Random Strangers Jam Registry</a> ·
+  <a href="https://jazzfoundation.org/monday-night-jam/" target="_blank">Jazz Foundation</a> ·
+  <a href="https://thepocketnyc.com/calendar/" target="_blank">The Pocket NYC</a> ·
+  <a href="https://www.jazzwahi.org/jazz-jam" target="_blank">Jazz WaHi</a> ·
+  <a href="https://www.harlemlatenightjazz.org/harlem-late-night-jazz-weekly-events" target="_blank">Harlem Late Night Jazz (Lions Den + HLNJ weekly)</a> ·
+  <a href="https://arthurstavern.nyc/events/" target="_blank">Arthur's Tavern</a> ·
+  <a href="https://jazzgeneration.org/calendar" target="_blank">Jazz Generation (Phil's House of Blues at Silvana)</a> ·
+  <a href="https://www.theginmillnyc.com/private-events-venue/speakeasy/" target="_blank">The Gin Mill Speakeasy Sessions</a>
+</div>
+
+<script>
+  const SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  let todayIndex = new Date().getDay();
+
+  function init() {
+    document.querySelectorAll('.day-pill').forEach(p => {
+      if (parseInt(p.dataset.day) === todayIndex) {
+        p.classList.add('today-pill');
+        p.textContent = SHORT[todayIndex] + ' ★';
+      }
+    });
+    const badge = document.getElementById('badge-' + todayIndex);
+    if (badge) badge.style.display = 'inline-block';
+    const now = new Date();
+    document.getElementById('today-label').textContent =
+      now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    showDay(todayIndex);
+  }
+
+  function showDay(d) {
+    for (let i = 0; i < 7; i++) document.getElementById('day-' + i).classList.remove('visible');
+    document.getElementById('day-' + d).classList.add('visible');
+    document.querySelectorAll('.day-pill').forEach(p => p.classList.toggle('active', parseInt(p.dataset.day) === d));
+    document.getElementById('show-all-btn').classList.remove('active');
+  }
+
+  function showAll() {
+    for (let i = 0; i < 7; i++) document.getElementById('day-' + i).classList.add('visible');
+    document.querySelectorAll('.day-pill').forEach(p => p.classList.remove('active'));
+    document.getElementById('show-all-btn').classList.add('active');
+  }
+
+  init();
+</script>
+</body>
+</html>
