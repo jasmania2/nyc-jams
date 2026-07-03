@@ -119,6 +119,22 @@ ev("20260706T200000", "20260706T230000",
    "https://www.theginmillnyc.com/private-events-venue/speakeasy/",
    "FREQ=WEEKLY;BYDAY=MO")
 
+ev("20260706T183000", "20260706T213000",
+   "Joanne — Open Mic Night",
+   "Joanne Trattoria, 70 W 68th St, Upper West Side, NYC",
+   "Hosted by Noah Landry. Singers, musicians, comedians, poets, storytellers welcome. "
+   "Dinner served throughout. All genres. Weekly Monday.",
+   "https://joannenyc.com/events/",
+   "FREQ=WEEKLY;BYDAY=MO")
+
+ev("20260706T210000", "20260707T000000",
+   "Mona's — Monday Night Bluegrass Jam",
+   "Mona's, 224 Ave B, East Village, NYC",
+   "Hosted by Rick Snell since 2011. Appalachian fiddle music, bluegrass, old-school country. "
+   "All levels welcome to join in. No cover. 9pm-midnight.",
+   "https://www.ricksnell.org/monasbluegrass",
+   "FREQ=WEEKLY;BYDAY=MO")
+
 ev("20260706T220000", "20260707T000000",
    "Richie Cannata's Monday Night Jam",
    "The Bitter End, 147 Bleecker St, Greenwich Village, NYC",
