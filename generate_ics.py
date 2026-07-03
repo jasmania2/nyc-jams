@@ -281,6 +281,16 @@ ev("20260703T180000", "20260703T220000",
    "https://thestonewallinnnyc.com/weekly-events",
    "FREQ=WEEKLY;BYDAY=FR")
 
+ev("20260717T224500", "20260718T013000",
+   "Dizzy's Club — Vocal Jam (3rd Friday monthly)",
+   "Dizzy's Club at Jazz at Lincoln Center, Frederick P. Rose Hall, Broadway at 60th St, Midtown, NYC",
+   "Monthly vocal jam — spotlight for singers in a collaborative setting alongside instrumentalists. "
+   "All levels welcome. 1 drink minimum. Cover waived for 9pm Dizzy's Club set attendees. "
+   "Other Fridays have an open Jam Session (all instruments, also 10:45pm). "
+   "Check jazz.org/dizzys/late-night-sessions-at-dizzys-club/ for this month's schedule.",
+   "https://jazz.org/dizzys/late-night-sessions-at-dizzys-club/",
+   "FREQ=MONTHLY;BYDAY=3FR")
+
 ev("20260703T223000", "20260704T010000",
    "One Flight Up — Friday Night Jam Session",
    "One Flight Up, 108 Greenwich St, Financial District, NYC",
