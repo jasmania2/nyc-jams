@@ -301,6 +301,16 @@ ev("20260706T233000", "20260707T010000",
 
 # ── SATURDAY ───────────────────────────────────────────────────────────────
 
+ev("20260704T220000", "20260705T033000",
+   "Bessie's Place — Live Performance & Open Jam",
+   "Bessie's Place Clubhouse, 458 W 145th St (btw Amsterdam & Convent), Hamilton Heights, NYC",
+   "Saturday Nite Performance followed by open late-night jam session. "
+   "Hosted by Resident Music Director Noel Simone Wippler & Friends. "
+   "$10 suggested. Verify address before going — also listed as 50 W 145th St on some listings. "
+   "Check @bessiesplacenow on Instagram for updates.",
+   "https://www.instagram.com/bessiesplacenow/",
+   "FREQ=WEEKLY;BYDAY=SA")
+
 ev("20260704T190000", "20260704T230000",
    "Corner Lounge — Jazz Jam",
    "Corner Lounge Bistro, 32 E 130th St (btw 5th & Madison), Harlem, NYC",
