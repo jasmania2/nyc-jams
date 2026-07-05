@@ -132,7 +132,7 @@
 
 <div class="search-bar">
   <div class="search-input-wrap">
-    <input type="text" id="search-input" class="search-input" placeholder="Search by place name, e.g. Smalls, Mona's, Harlem…" oninput="searchEvents(this.value)">
+    <input type="text" id="search-input" class="search-input" placeholder="Search events, venues, neighborhoods…" oninput="searchEvents(this.value)">
     <button class="search-clear" id="search-clear" onclick="clearSearchInput()">✕</button>
   </div>
   <span id="search-count" class="search-count"></span>
@@ -1387,12 +1387,10 @@
     document.querySelectorAll('.day-pill').forEach(p => p.classList.remove('active'));
     document.getElementById('show-all-btn').classList.remove('active');
 
-    // Filter event cards — match on event name + venue name only
+    // Filter event cards
     let total = 0;
     document.querySelectorAll('.event-card').forEach(card => {
-      const nameEl = card.querySelector('.event-name');
-      const venueEl = card.querySelector('.event-venue');
-      const text = ((nameEl ? nameEl.textContent : '') + ' ' + (venueEl ? venueEl.textContent : '')).toLowerCase();
+      const text = card.textContent.toLowerCase();
       if (text.includes(query)) {
         card.style.removeProperty('display');
         total++;
