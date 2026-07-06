@@ -178,6 +178,14 @@ ev("20260714T190000", "20260714T210000",
    "https://www.reverieroomnyc.com/open-mic-night",
    "FREQ=MONTHLY;BYDAY=2TU")
 
+ev("20260707T210000", "20260708T010000",
+   "Mona's Hot Four — Trad-Jazz Jam Session",
+   "Mona's, 224 Ave B, East Village, NYC",
+   "Weekly late-night traditional jazz jam hosted by Dennis Lichtman's Mona's Hot Four since 2007. "
+   "9pm til late. No cover, tips for the band appreciated.",
+   "https://www.dennislichtman.com/monas",
+   "FREQ=WEEKLY;BYDAY=TU")
+
 ev("20260707T193000", "20260707T220000",
    "JazzWahi Weekly Jazz Jam",
    "Kismat Indian Restaurant, 603 Ft. Washington Ave at W. 187 St, Washington Heights, NYC",
