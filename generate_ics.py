@@ -50,9 +50,10 @@ ev("20260701T140000", "20260701T180000",
 ev("20260701T220000", "20260702T000000",
    "Jazzcultural — Late Night Jam in the Cafe",
    "Jazzcultural, 349 W 46th St, Midtown, NYC",
-   "Rotating pianist hosts nightly 10pm-midnight. Check smallslive.com for host.",
+   "Rotating pianist hosts 10pm-midnight. Check smallslive.com for host. "
+   "Not confirmed Thu/Fri/Sat — call ahead on those nights.",
    "https://www.smallslive.com",
-   "FREQ=DAILY")
+   "FREQ=WEEKLY;BYDAY=SU,MO,TU,WE")
 
 ev("20260701T234500", "20260702T040000",
    "Smalls Jazz Club — Late Night Jam Session",
@@ -71,10 +72,10 @@ ev("20260705T180000", "20260705T220000",
    "https://www.harlemlatenightjazz.org/harlem-late-night-jazz-weekly-events",
    "FREQ=WEEKLY;BYDAY=SU")
 
-ev("20260705T200000", "20260705T220000",
+ev("20260705T153000", "20260705T184500",
    "Jazz By Jorei — Free Jazz Jam & Open Mic",
    "Sour Mouse, Lower East Side, NYC",
-   "Free weekly Sunday jazz jam. Singers and musicians welcome to sign up or sit in.",
+   "Free weekly Sunday jazz jam, 3:30–6:45pm. Singers and musicians welcome to sign up or sit in.",
    "https://donyc.com/events/weekly/sun/free-jazz-jam-open-mic-every-sunday-tickets",
    "FREQ=WEEKLY;BYDAY=SU")
 
@@ -231,6 +232,14 @@ ev("20260701T190000", "20260701T230000",
    "Corner Lounge Bistro, 32 E 130th St (btw 5th & Madison), Harlem, NYC",
    "Weekly jazz jam. Also Saturdays 7-11pm.",
    "https://www.harlemonestop.com/event/34689/harlem-harlem-harlem-jazz-night-jam-session",
+   "FREQ=WEEKLY;BYDAY=WE")
+
+ev("20260701T200000", "20260702T000000",
+   "Gin Mill — Wednesday Night Jam Session (Peter Brainin)",
+   "The Gin Mill, 442 Amsterdam Ave (at 81st St), Upper West Side, NYC",
+   "Weekly Wednesday jazz jam session hosted by saxophonist Peter Brainin. 8pm start. "
+   "All levels welcome to sit in.",
+   "https://www.theginmillnyc.com/",
    "FREQ=WEEKLY;BYDAY=WE")
 
 ev("20260701T210000", "20260701T230000",
