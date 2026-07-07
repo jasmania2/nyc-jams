@@ -152,13 +152,6 @@ ev("20260706T213000", "20260707T000000",
    "https://www.birdlandjazz.com/tm-event/jim-carusos-cast-party/",
    "FREQ=WEEKLY;BYDAY=MO")
 
-ev("20260706T223000", "20260707T013000",
-   "Smoke Jazz — Monday Night Jam (~10:30pm after headliners)",
-   "Smoke Jazz & Supper Club, 2751 Broadway at 106th St, Upper West Side, NYC",
-   "Jam begins after the 8:30pm headliner set (~10:30pm). "
-   "Headliner shows at 6:30pm + 8:30pm. Cover + minimum. Call (212) 864-6662.",
-   "https://smokejazz.com/",
-   "FREQ=WEEKLY;BYDAY=MO")
 
 ev("20260727T130000", "20260727T153000",
    "Jazz Foundation Monday Night Jam (Last Monday of month)",
