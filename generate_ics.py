@@ -90,6 +90,15 @@ ev("20260706T170000", "20260706T213000",
    "https://arthurstavern.nyc/events/",
    "FREQ=WEEKLY;BYDAY=MO")
 
+ev("20260706T190000", "20260706T230000",
+   "NAMA — Monday Night Live Music Jam (Music of the Diaspora)",
+   "New Amsterdam Musical Association (NAMA), 107 W 130th St, Central Harlem, NYC",
+   "One of Harlem's longest-running live music jams. Rotating bands playing Jazz, Blues, and Rumba. "
+   "7pm–11pm. Bring your instrument or just your ears. "
+   "Confirmed on namaharlem.org for 2026.",
+   "https://www.namaharlem.org",
+   "FREQ=WEEKLY;BYDAY=MO")
+
 ev("20260706T190000", "20260706T220000",
    "Phil's House of Blues at Silvana",
    "Silvana, 300 W 116th St, Harlem, NYC",
@@ -219,13 +228,13 @@ ev("20260701T160000", "20260701T171500",
    "https://www.jazzwahi.org/jazz-jam",
    "FREQ=WEEKLY;BYDAY=WE;UNTIL=20261028T235959Z")
 
-ev("20260701T190000", "20260701T213000",
-   "The Lions Den Jam at NAMA (March–December)",
-   "New Amsterdam Musical Association (NAMA), 107 W 130th St, Harlem, NYC",
+ev("20260701T210000", "20260702T000000",
+   "The Lions Den Jam at NAMA",
+   "New Amsterdam Musical Association (NAMA), 107 W 130th St, Central Harlem, NYC",
+   "Masters Jam in the Lion's Den hosted by Harlem Late Night Jazz. "
    "NYC's best Young Lions jamming with the masters. NAMA founded 1904 — nation's oldest org for Black musicians. "
-   "Curated by Harlem Late Night Jazz + Jazz Foundation of America. "
-   "Email info@harlemlatenightjazz.org for current time.",
-   "https://www.harlemlatenightjazz.org/harlem-late-night-jazz-weekly-events",
+   "9pm–midnight. Confirmed on namaharlem.org for July 2026.",
+   "https://www.namaharlem.org",
    "FREQ=WEEKLY;BYDAY=WE;UNTIL=20261231T235959Z")
 
 ev("20260701T190000", "20260701T230000",
