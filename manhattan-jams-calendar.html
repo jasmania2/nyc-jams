@@ -160,6 +160,46 @@
   .event-link{font-size:0.78rem;color:var(--gold);text-decoration:none;}
   .event-link:hover{text-decoration:underline;}
   .empty-day{color:var(--text-dim);font-size:0.85rem;padding:6px 0 12px;}
+
+  /* Subscribe dropdown */
+  .sub-wrap{position:relative;}
+  .sub-menu{
+    display:none;position:absolute;top:calc(100% + 6px);right:0;
+    background:var(--panel-2);border:1px solid var(--border);border-radius:9px;
+    padding:6px 0;min-width:200px;z-index:50;box-shadow:0 4px 16px rgba(0,0,0,.4);
+  }
+  .sub-menu.open{display:block;}
+  .sub-menu a,.sub-menu button.sub-item{
+    display:block;width:100%;text-align:left;background:transparent;border:none;
+    padding:8px 14px;color:var(--text);font-size:0.8rem;border-radius:0;
+    cursor:pointer;text-decoration:none;
+  }
+  .sub-menu a:hover,.sub-menu button.sub-item:hover{background:#2a2f45;color:var(--gold-soft);}
+  .sub-divider{border:none;border-top:1px solid var(--border);margin:4px 0;}
+
+  /* Search */
+  .search-wrap{margin:10px 0 0;}
+  #searchInput{
+    width:100%;background:var(--panel-2);border:1px solid var(--border);border-radius:8px;
+    color:var(--text);padding:7px 12px;font-size:0.82rem;outline:none;
+    box-sizing:border-box;transition:border-color .15s;
+  }
+  #searchInput::placeholder{color:var(--text-dim);}
+  #searchInput:focus{border-color:var(--gold);}
+
+  /* Search results */
+  #searchPanel{display:none;margin-top:12px;background:var(--panel);
+    border:1px solid var(--border);border-radius:12px;padding:12px 16px 6px;}
+  #searchPanel.visible{display:block;}
+  .borough-section{margin-bottom:10px;}
+  .borough-label{
+    font-size:0.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gold);border-bottom:1px solid var(--border);padding-bottom:4px;margin-bottom:4px;
+  }
+  .search-event-card{border-top:1px solid var(--border);padding:8px 0;font-size:0.82rem;}
+  .search-event-card:first-of-type{border-top:none;}
+  .search-event-day{font-size:0.72rem;color:var(--text-dim);margin-bottom:1px;}
+  .search-no-results{color:var(--text-dim);font-size:0.85rem;padding:6px 0 12px;}
 </style>
 </head>
 <body>
@@ -180,10 +220,24 @@
     <div class="btn-row">
       <button id="todayBtn">Today</button>
       <button id="refreshBtn">Refresh</button>
+      <div class="sub-wrap">
+        <button id="subscribeBtn">Subscribe ▾</button>
+        <div class="sub-menu" id="subMenu">
+          <a href="https://calendar.google.com/calendar/r?cid=https%3A%2F%2Fraw.githubusercontent.com%2Fjasmania2%2Fnyc-jams%2Fmain%2Fmanhattan-jams.ics" target="_blank" rel="noopener">Google Calendar</a>
+          <a href="webcal://raw.githubusercontent.com/jasmania2/nyc-jams/main/manhattan-jams.ics">Apple Calendar</a>
+          <hr class="sub-divider">
+          <button class="sub-item" id="copyIcsBtn">Copy ICS URL</button>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="search-wrap">
+    <input type="search" id="searchInput" placeholder="Search venues &amp; events…">
   </div>
 
   <div id="status">Fetching manhattan-jams.ics…</div>
+
+  <div id="searchPanel"></div>
 
   <div class="grid" id="grid">
     <div class="dow">Sun</div><div class="dow">Mon</div><div class="dow">Tue</div>
@@ -519,6 +573,97 @@ async function init(isRefresh){
     statusEl.textContent = 'Could not load the calendar (' + e.message + '). Check your connection and try Refresh, or open the .ics link directly below.';
   }
 }
+
+// ── SUBSCRIBE DROPDOWN ──────────────────────────────────────────────────────
+const subscribeBtn = document.getElementById('subscribeBtn');
+const subMenu = document.getElementById('subMenu');
+const copyIcsBtn = document.getElementById('copyIcsBtn');
+subscribeBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  subMenu.classList.toggle('open');
+});
+document.addEventListener('click', () => subMenu.classList.remove('open'));
+copyIcsBtn.addEventListener('click', () => {
+  const url = 'https://raw.githubusercontent.com/jasmania2/nyc-jams/main/manhattan-jams.ics';
+  navigator.clipboard.writeText(url)
+    .then(() => { copyIcsBtn.textContent = 'Copied!'; setTimeout(() => { copyIcsBtn.textContent = 'Copy ICS URL'; }, 2000); })
+    .catch(() => prompt('Copy this ICS URL:', url));
+});
+
+// ── BOROUGH DETECTION ───────────────────────────────────────────────────────
+function getBorough(location){
+  if(/Brooklyn/i.test(location)) return 'Brooklyn';
+  if(/Queens|Ridgewood|Astoria|Flushing|Jamaica/i.test(location)) return 'Queens';
+  if(/\bBronx\b/i.test(location)) return 'The Bronx';
+  if(/Staten Island/i.test(location)) return 'Staten Island';
+  return 'Manhattan';
+}
+
+// ── SEARCH ──────────────────────────────────────────────────────────────────
+const searchPanel = document.getElementById('searchPanel');
+const searchInput = document.getElementById('searchInput');
+const BOROUGH_ORDER = ['Manhattan','Brooklyn','Queens','The Bronx','Staten Island'];
+
+function runSearch(q){
+  q = q.trim().toLowerCase();
+  if(!q){ searchPanel.classList.remove('visible'); searchPanel.innerHTML = ''; return; }
+
+  const rangeStart = new Date(today); rangeStart.setHours(0,0,0,0);
+  const rangeEnd = new Date(rangeStart.getTime() + 120 * 86400000);
+  const allOccs = occurrencesInRange(rangeStart, rangeEnd);
+
+  const matched = allOccs.filter(o =>
+    (o.summary + ' ' + o.location).toLowerCase().includes(q)
+  );
+
+  // Deduplicate to one entry per unique summary+borough combo
+  const seen = new Set();
+  const deduped = [];
+  for(const o of matched){
+    const k = o.summary.toLowerCase() + '|' + getBorough(o.location);
+    if(!seen.has(k)){ seen.add(k); deduped.push(o); }
+  }
+
+  searchPanel.innerHTML = '';
+  if(!deduped.length){
+    searchPanel.innerHTML = '<div class="search-no-results">No events found.</div>';
+    searchPanel.classList.add('visible');
+    return;
+  }
+
+  const byBorough = {};
+  deduped.forEach(o => {
+    const b = getBorough(o.location);
+    (byBorough[b] = byBorough[b] || []).push(o);
+  });
+
+  BOROUGH_ORDER.filter(b => byBorough[b]).forEach(b => {
+    const sec = document.createElement('div');
+    sec.className = 'borough-section';
+    const lbl = document.createElement('div');
+    lbl.className = 'borough-label';
+    lbl.textContent = b;
+    sec.appendChild(lbl);
+    byBorough[b].forEach(o => {
+      const card = document.createElement('div');
+      card.className = 'search-event-card';
+      const dow = o.start.toLocaleDateString('en-US', {weekday:'long'});
+      const timeStr = o.end ? `${fmtTime(o.start)} – ${fmtTime(o.end)}` : fmtTime(o.start);
+      card.innerHTML = `
+        <div class="search-event-day">${dow} · ${timeStr}</div>
+        <div class="event-title">${escapeHtml(o.summary)}</div>
+        ${o.location ? `<div class="event-loc">${escapeHtml(o.location)}</div>` : ''}
+        ${o.url ? `<a class="event-link" href="${o.url}" target="_blank" rel="noopener">More info &rarr;</a>` : ''}
+      `;
+      sec.appendChild(card);
+    });
+    searchPanel.appendChild(sec);
+  });
+
+  searchPanel.classList.add('visible');
+}
+
+searchInput.addEventListener('input', e => runSearch(e.target.value));
 
 init(false);
 </script>

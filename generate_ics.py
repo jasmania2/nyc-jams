@@ -180,6 +180,15 @@ ev("20260714T190000", "20260714T210000",
    "https://www.reverieroomnyc.com/open-mic-night",
    "FREQ=MONTHLY;BYDAY=2TU")
 
+ev("20260707T200000", "20260707T230000",
+   "Bar Bayeux — Tuesday Jazz Jam Session",
+   "Bar Bayeux, 1066 Nostrand Ave, Prospect Lefferts Gardens, Brooklyn, NYC",
+   "Weekly Tuesday jazz jam, 8–11pm. Rotating house band. "
+   "Singers and instrumentalists welcome to sit in. "
+   "No cover. One drink minimum. Complimentary vegan food and brownies.",
+   "https://www.barbayeux.com/jazz",
+   "FREQ=WEEKLY;BYDAY=TU")
+
 ev("20260707T210000", "20260708T010000",
    "Mona's Hot Four — Trad-Jazz Jam Session",
    "Mona's, 224 Ave B, East Village, NYC",
