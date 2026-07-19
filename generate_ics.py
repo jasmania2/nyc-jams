@@ -62,6 +62,45 @@ ev("20260701T234500", "20260702T040000",
    "https://www.smallslive.com",
    "FREQ=DAILY")
 
+ev("20260701T190000", "20260701T230000",
+   "Cellar Dog — Live Jazz",
+   "Cellar Dog, 75 Christopher St, West Village, NYC",
+   "Jazz at 7pm every night with rotating trios, quartets, and quintets. "
+   "$5–$10 cover. Billiards, ping pong, shuffleboard also on site. "
+   "Open Mon–Thu until 1am, Fri–Sat until 4am, Sun until 1am. "
+   "Confirmed on cellardog.net June 2026.",
+   "https://www.cellardog.net/music",
+   "FREQ=DAILY")
+
+ev("20260702T233000", "20260703T020000",
+   "Cellar Dog — Late Night Jazz",
+   "Cellar Dog, 75 Christopher St, West Village, NYC",
+   "Late night jazz at 11:30pm on Thursdays, Fridays, and Saturdays. "
+   "Open until 4am Fri–Sat. $5–$10 cover. "
+   "Confirmed on cellardog.net June 2026.",
+   "https://www.cellardog.net/music",
+   "FREQ=WEEKLY;BYDAY=TH,FR,SA")
+
+ev("20260701T183000", "20260701T203000",
+   "Ornithology Jazz Club — Earlybird Show",
+   "Ornithology Jazz Club, 6 Suydam St, Bushwick, Brooklyn, NYC",
+   "Earlybird jazz set 6:30–8:30pm most nights Monday–Saturday. "
+   "Rotating lineups — check ornithologyjazzclub.com for specific performers. "
+   "Founded by creator of Smalls Jazz Club. "
+   "Confirmed on ornithologyjazzclub.com July 2026.",
+   "https://ornithologyjazzclub.com/brooklyn-bushwick-williamsburg-ornithology-jazz-club-events",
+   "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA")
+
+ev("20260701T210000", "20260702T000000",
+   "Ornithology Jazz Club — Jazz Dialogue (Late Set)",
+   "Ornithology Jazz Club, 6 Suydam St, Bushwick, Brooklyn, NYC",
+   "Late jazz set 9pm–midnight most nights Tuesday–Saturday. "
+   "Rotating lineups featuring NYC's finest. "
+   "Check ornithologyjazzclub.com for specific performers. "
+   "Confirmed on ornithologyjazzclub.com July 2026.",
+   "https://ornithologyjazzclub.com/brooklyn-bushwick-williamsburg-ornithology-jazz-club-events",
+   "FREQ=WEEKLY;BYDAY=TU,WE,TH,FR,SA")
+
 # ── SUNDAY ─────────────────────────────────────────────────────────────────
 
 ev("20260705T180000", "20260705T220000",
@@ -79,7 +118,47 @@ ev("20260705T153000", "20260705T184500",
    "https://donyc.com/events/weekly/sun/free-jazz-jam-open-mic-every-sunday-tickets",
    "FREQ=WEEKLY;BYDAY=SU")
 
+ev("20260705T213000", "20260706T020000",
+   "11th Street Bar — Sunday Night Traditional Irish Seisiún",
+   "11th Street Bar, 510 E 11th St, East Village, NYC",
+   "One of NYC's longest-running traditional Irish seisiúns. "
+   "Hosted by Tony DeMarco (fiddle) — other musicians join in throughout the night. "
+   "9:30pm–2am. Featured in the NY Times; host Tony appeared on NPR's 'Live From Here.' "
+   "Confirmed on 11thstbar.com July 2026.",
+   "https://11thstbar.com/new-york-east-village-11th-st-bar-events",
+   "FREQ=WEEKLY;BYDAY=SU")
+
+ev("20260705T233000", "20260706T013000",
+   "Mezzrow — Polite Vocal Jam Session",
+   "Mezzrow, 163 W 10th St, West Village, NYC",
+   "Late Sunday night vocal jam open to all singers. "
+   "Rotating house piano trio backs vocalists who sign up. "
+   "11:30pm after the 10:30pm set. 1-drink minimum. "
+   "Confirmed on SmallsLIVE May 2026 (Naama Gheber, Vanisha Gould, and others).",
+   "https://www.mezzrow.com",
+   "FREQ=WEEKLY;BYDAY=SU")
+
 # ── MONDAY ─────────────────────────────────────────────────────────────────
+
+ev("20260706T200000", "20260706T230000",
+   "11th Street Bar — Keyed Up! Monday Night Jazz",
+   "11th Street Bar, 510 E 11th St, East Village, NYC",
+   "10+ years running. House band 'The 11th St. Bar Quintet': "
+   "Richard Clements (piano), Murray Wall (bass), Taro Okamoto (drums), "
+   "Grant Stewart (tenor sax), Joe Magnarelli (trumpet). 8–11pm. "
+   "Confirmed on 11thstbar.com July 2026.",
+   "https://11thstbar.com/new-york-east-village-11th-st-bar-events",
+   "FREQ=WEEKLY;BYDAY=MO")
+
+ev("20260706T193000", "20260706T223000",
+   "The Craftsman — Open Mic Monday",
+   "The Craftsman, 3155 Broadway, Morningside Heights, NYC",
+   "Weekly Monday open mic for musicians, singers, and poets. "
+   "Sign-ups at 7:30pm, performances start 8pm. Free. "
+   "Neighborhood bar + café near Columbia University. "
+   "Confirmed via thecraftsmannyc.com April 2026.",
+   "http://thecraftsmannyc.com/",
+   "FREQ=WEEKLY;BYDAY=MO")
 
 ev("20260706T170000", "20260706T213000",
    "Arthur's Tavern — Grove Street Stompers (Sit-ins Welcome)",
@@ -170,6 +249,15 @@ ev("20260727T130000", "20260727T153000",
    "FREQ=MONTHLY;BYDAY=-1MO")
 
 # ── TUESDAY ────────────────────────────────────────────────────────────────
+
+ev("20260707T190000", "20260707T220000",
+   "The Craftsman — Live Jazz Tuesday",
+   "The Craftsman, 3155 Broadway, Morningside Heights, NYC",
+   "Weekly Tuesday live jazz, 7pm. Free. "
+   "Neighborhood bar + café near Columbia University. "
+   "Confirmed via thecraftsmannyc.com April 2026.",
+   "http://thecraftsmannyc.com/",
+   "FREQ=WEEKLY;BYDAY=TU")
 
 ev("20260714T190000", "20260714T210000",
    "Reverie Room — Open Mic Night (2nd Tuesday)",

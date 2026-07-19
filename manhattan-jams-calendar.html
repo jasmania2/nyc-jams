@@ -252,7 +252,7 @@
   <p class="legend">
     Subscribes live to
     <a href="https://raw.githubusercontent.com/jasmania2/nyc-jams/main/manhattan-jams.ics" target="_blank" rel="noopener">manhattan-jams.ics</a>,
-    plus Mona's (East Village) and Joanne's (UWS) added manually — click a date to see its events below. Always call venues ahead to confirm.
+    click a date to see its events below. Always call venues ahead to confirm.
   </p>
 </div>
 
@@ -296,17 +296,6 @@ TZOFFSETTO:-0400
 TZNAME:EDT
 END:DAYLIGHT
 END:VTIMEZONE
-BEGIN:VEVENT
-UID:local-joannes-monday@manhattan-jams-app
-DTSTART;TZID=America/New_York:20260706T183000
-DTEND;TZID=America/New_York:20260706T213000
-RRULE:FREQ=WEEKLY;BYDAY=MO
-SUMMARY:Joanne — Open Mic Night
-LOCATION:Joanne (Joanne Trattoria)\\, 70 W 68th St\\, Upper West Side\\, NYC
-DESCRIPTION:Weekly Monday open mic hosted by Noah Landry — singers\\, musicians\\, comedians\\, poets\\, storytellers welcome. Dinner and drinks served.
-STATUS:CONFIRMED
-URL:https://joannenyc.com/entertainment-home
-END:VEVENT
 END:VCALENDAR`;
 
 let allEvents = [];   // ICAL.Event objects
