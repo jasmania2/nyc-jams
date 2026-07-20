@@ -91,6 +91,15 @@ ev("20260705T213000", "20260706T020000",
 
 # ── MONDAY ─────────────────────────────────────────────────────────────────
 
+ev("20260706T200000", "20260707T000000",
+   "Russian Vodka Room — Monday Night Jazz Jam",
+   "Russian Vodka Room, 265 W 52nd St, Hell's Kitchen, NYC",
+   "Weekly Monday night live jazz jam. "
+   "Call ahead to confirm schedule — venue events page currently being updated. "
+   "(212) 307-5835 / russianvodkaroomnyc.com",
+   "https://russianvodkaroomnyc.com/new-york-russian-vodka-room-events",
+   "FREQ=WEEKLY;BYDAY=MO")
+
 ev("20260706T193000", "20260706T223000",
    "The Craftsman — Open Mic Monday",
    "The Craftsman, 3155 Broadway, Morningside Heights, NYC",
@@ -248,6 +257,15 @@ ev("20260707T210000", "20260707T230000",
    "FREQ=WEEKLY;BYDAY=TU")
 
 # ── WEDNESDAY ──────────────────────────────────────────────────────────────
+
+ev("20260701T193000", "20260701T230000",
+   "Sour Mouse — Wednesday Jazz Jam with Russ Nolan",
+   "Sour Mouse, 110 Delancey St (Lower Level), Lower East Side, NYC",
+   "Live jazz trio set followed by open jam session. No cover. "
+   "Singers and musicians welcome to sit in. 7:30pm start. "
+   "Confirmed on sourmousenyc.com July 2026.",
+   "https://www.sourmousenyc.com/event-list",
+   "FREQ=WEEKLY;BYDAY=WE")
 
 ev("20260701T160000", "20260701T171500",
    "JazzWahi Jazz in Bennett Park (Outdoor, April–October)",
