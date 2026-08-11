@@ -410,6 +410,15 @@ ev("20260704T223000", "20260705T010000",
    "https://www.oneflightupjazz.com/",
    "FREQ=WEEKLY;BYDAY=SA")
 
+ev("20260901T190000", "20260901T210000",
+   "One Flight Up — Vocal Jazz Summit Vocal Jam (TENTATIVE — date TBD)",
+   "One Flight Up, 108 Greenwich St, Financial District, NYC",
+   "TENTATIVE — exact day and time not yet confirmed. "
+   "Starting September 2026, sponsored by the Vocal Jazz Summit. "
+   "Check oneflightupjazz.com or @vocaljazzsummit for the official schedule.",
+   "https://www.oneflightupjazz.com/",
+   "FREQ=DAILY;COUNT=1")
+
 ev("20260704T220000", "20260705T033000",
    "Bessie's Place — Live Performance & Open Jam",
    "Bessie's Place Clubhouse, 458 W 145th St (btw Amsterdam & Convent), Hamilton Heights, NYC",
