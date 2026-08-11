@@ -43,9 +43,17 @@ ev("20260701T213000", "20260702T013000",
 ev("20260701T140000", "20260701T180000",
    "Jazzcultural — Afternoon Jam in the Cafe",
    "Jazzcultural, 349 W 46th St, Midtown, NYC",
-   "Rotating hosts daily — check smallslive.com for tonight's musician. Sit-in welcome.",
+   "Rotating hosts Mon–Sat — check smallslive.com for tonight's musician. Sit-in welcome.",
    "https://www.smallslive.com",
-   "FREQ=DAILY")
+   "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA")
+
+ev("20260705T140000", "20260705T180000",
+   "Jazzcultural — Sunday Afternoon Vocal Jam in the Cafe",
+   "Jazzcultural, 349 W 46th St, Midtown, NYC",
+   "Sunday afternoon vocal jam, 2–6pm. Vocalists welcome to sit in. "
+   "Check smallslive.com for host. Confirmed SmallsLIVE July 2026.",
+   "https://www.smallslive.com",
+   "FREQ=WEEKLY;BYDAY=SU")
 
 ev("20260701T220000", "20260702T000000",
    "Jazzcultural — Late Night Jam in the Cafe",
@@ -138,8 +146,10 @@ ev("20260706T190000", "20260706T220000",
 ev("20260706T190000", "20260706T210000",
    "Big Ed's World Famous Blues Jam",
    "The Red Lion, 151 Bleecker St, Greenwich Village, NYC",
-   "Weekly Monday blues jam hosted by Big Ed. $10 cover.",
-   "",
+   "NYC's longest-running blues jam, 27+ years. Co-hosted by Big Ed Sullivan and Christine Santelli. "
+   "Sign up to play when you arrive. No cover Mon–Thu. "
+   "Backline: PA, amps, drum kit, keys. Confirmed via redlionnyc.com August 2026.",
+   "https://redlionnyc.com/new-york-the-red-lion-live-music",
    "FREQ=WEEKLY;BYDAY=MO")
 
 ev("20260706T200000", "20260706T230000",
@@ -177,8 +187,9 @@ ev("20260706T210000", "20260707T000000",
 ev("20260706T220000", "20260707T000000",
    "Richie Cannata's Monday Night Jam",
    "The Bitter End, 147 Bleecker St, Greenwich Village, NYC",
-   "Hosted by Billy Joel's saxophonist. $12 cover.",
-   "",
+   "Hosted by Billy Joel's saxophonist Richie Cannata. Doors 9:30pm, show 10pm. "
+   "Cover charge applies. Confirmed via VenuePilot August 2026.",
+   "https://bitterend.com/",
    "FREQ=WEEKLY;BYDAY=MO")
 
 ev("20260706T213000", "20260707T000000",
@@ -191,12 +202,24 @@ ev("20260706T213000", "20260707T000000",
    "FREQ=WEEKLY;BYDAY=MO")
 
 
-ev("20260727T130000", "20260727T153000",
-   "Jazz Foundation Monday Night Jam (Last Monday of month)",
-   "Musicians Union, Midtown Manhattan, NYC",
-   "Monthly jam — last Monday of each month. Free.",
+ev("20260720T190000", "20260720T230000",
+   "Don't Tell Mama — 3rd Monday Jazz Jam (Kelly Wohlford)",
+   "Don't Tell Mama, 343 W 46th St, Hell's Kitchen, NYC",
+   "Monthly jazz jam on the 3rd Monday, hosted by vocalist Kelly Wohlford "
+   "with Quintin Harris on piano. Sign-up 6:15pm, music 7pm. "
+   "$5 cover (cash only) + $20 two-drink minimum. "
+   "Bass amp and full drum kit provided. All genres welcome. "
+   "Confirmed via shows.donttellmamanyc.com May/June 2026.",
+   "https://shows.donttellmamanyc.com/",
+   "FREQ=MONTHLY;BYDAY=3MO")
+
+ev("20260727T190000", "20260727T213000",
+   "Jazz Foundation Monday Night Jam (4th Monday of month)",
+   "Local 802 Musicians' Union, 322 W. 48th St. (btw 8th & 9th Aves.), Hell's Kitchen, NYC",
+   "Monthly jam, 4th Monday of each month, 7–9:30pm. Free and open to the public. "
+   "Seasoned veterans + up-and-comers. Confirmed dates: Jul 27, Aug 24, Sep 28, Oct 26, Nov 23.",
    "https://jazzfoundation.org/monday-night-jam/",
-   "FREQ=MONTHLY;BYDAY=-1MO")
+   "FREQ=MONTHLY;BYDAY=4MO")
 
 # ── TUESDAY ────────────────────────────────────────────────────────────────
 
@@ -242,10 +265,10 @@ ev("20260707T130000", "20260707T180000",
    "FREQ=WEEKLY;BYDAY=TU")
 
 ev("20260707T190000", "20260707T230000",
-   "Melba's Tuesday Night Live Music Jam",
+   "Melba's Tuesday Night Live Music Jam (VERIFY BEFORE GOING)",
    "Melba's, 300 W 114th St, Harlem, NYC",
-   "Live music jam with soul food, DJ, and dancing over dinner. "
-   "Small venue — reservations strongly recommended. Call (212) 864-7777.",
+   "UNVERIFIED — unable to confirm this jam within the last 6 months. "
+   "Call ahead: (212) 864-7777. Live music jam with soul food, DJ, and dancing over dinner.",
    "https://www.melbasrestaurant.com/",
    "FREQ=WEEKLY;BYDAY=TU")
 
@@ -324,11 +347,12 @@ ev("20260730T213000", "20260730T233000",
    "https://fourhandscollective.org/events",
    "FREQ=MONTHLY;BYDAY=-1TH")
 
-ev("20260702T193000", "20260702T213000",
+ev("20260702T193000", "20260703T003000",
    "Thursday Open Mic — Music, Comedy, Poetry",
    "The Music Inn, 169 W 4th St, Greenwich Village, NYC",
-   "All genres. Free. Line up early to sign up.",
-   "",
+   "Sign-up 7pm, show 8pm–12:30am. Music, comedy, poetry. Small cover charge. "
+   "Confirmed via Instagram and Yelp June 2026.",
+   "https://www.musicinnvarietyshow.com/",
    "FREQ=WEEKLY;BYDAY=TH")
 
 ev("20260702T200000", "20260702T230000",
@@ -360,8 +384,9 @@ ev("20260717T224500", "20260718T013000",
 ev("20260703T223000", "20260704T010000",
    "One Flight Up — Friday Night Jam Session",
    "One Flight Up, 108 Greenwich St, Financial District, NYC",
-   "Open Wed-Sat. Confirmed weekly Friday jam after headliner sets. "
-   "$30 music room / $20 bar seating + 1 drink minimum.",
+   "Open jam 10:30pm–1am. No cover for jam sessions, 1 drink minimum. "
+   "Earlier headliner sets: $30 music room / $20 bar seating. "
+   "Confirmed via oneflightupjazz.com (WBGO feature July 2026).",
    "https://www.oneflightupjazz.com/",
    "FREQ=WEEKLY;BYDAY=FR")
 
@@ -376,6 +401,14 @@ ev("20260706T233000", "20260707T010000",
    "FREQ=WEEKLY;BYDAY=SU,MO,WE,TH,FR,SA")
 
 # ── SATURDAY ───────────────────────────────────────────────────────────────
+
+ev("20260704T223000", "20260705T010000",
+   "One Flight Up — Saturday Night Jam Session",
+   "One Flight Up, 108 Greenwich St, Financial District, NYC",
+   "Open jam 10:30pm–1am. No cover for jam sessions, 1 drink minimum. "
+   "Confirmed via oneflightupjazz.com 2026.",
+   "https://www.oneflightupjazz.com/",
+   "FREQ=WEEKLY;BYDAY=SA")
 
 ev("20260704T220000", "20260705T033000",
    "Bessie's Place — Live Performance & Open Jam",
