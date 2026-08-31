@@ -161,14 +161,6 @@ ev("20260706T200000", "20260706T230000",
    "https://www.fivespotjazz.com/upcomingshows",
    "FREQ=WEEKLY;BYDAY=MO")
 
-ev("20260706T200000", "20260706T230000",
-   "Gin Mill Speakeasy Sessions",
-   "The Gin Mill, 442 Amsterdam Ave (at 81st St), Upper West Side, NYC",
-   "Free happy hour (well drinks + draft beer) 8-9pm in the underground speakeasy, "
-   "then free live concert 9-11pm. Rotating artists. No cover.",
-   "https://www.theginmillnyc.com/private-events-venue/speakeasy/",
-   "FREQ=WEEKLY;BYDAY=MO")
-
 ev("20260706T183000", "20260706T213000",
    "Joanne — Open Mic Night",
    "Joanne Trattoria, 70 W 68th St, Upper West Side, NYC",
