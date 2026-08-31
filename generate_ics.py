@@ -201,12 +201,12 @@ ev("20260706T213000", "20260707T000000",
    "https://www.birdlandjazz.com/tm-event/jim-carusos-cast-party/",
    "FREQ=WEEKLY;BYDAY=MO")
 
-ev("20260706T200000", "20260706T230000",
-   "Sour Mouse — Monday Night Jazz Jam Session",
+ev("20260706T203000", "20260706T233000",
+   "Sour Mouse — Monday Night Jazz Jam (Jazz in the Basement)",
    "Sour Mouse, 110 Delancey St (Lower Level), Lower East Side, NYC",
-   "Weekly Monday jazz jam, 8pm. No cover. "
+   "Weekly Monday jazz jam, 8:30–11:30pm. No cover. "
    "Sit-in welcome. Confirmed on sourmousenyc.com August 2026.",
-   "https://www.sourmousenyc.com/event-list",
+   "https://www.sourmousenyc.com/events",
    "FREQ=WEEKLY;BYDAY=MO")
 
 ev("20260720T190000", "20260720T230000",
@@ -289,13 +289,13 @@ ev("20260707T210000", "20260707T230000",
 
 # ── WEDNESDAY ──────────────────────────────────────────────────────────────
 
-ev("20260701T193000", "20260701T230000",
+ev("20260701T200000", "20260701T230000",
    "Sour Mouse — Wednesday Jazz Jam with Russ Nolan",
    "Sour Mouse, 110 Delancey St (Lower Level), Lower East Side, NYC",
-   "Live jazz trio set followed by open jam session. No cover. "
-   "Singers and musicians welcome to sit in. 7:30pm start. "
-   "Confirmed on sourmousenyc.com July 2026.",
-   "https://www.sourmousenyc.com/event-list",
+   "Live jazz trio set followed by open jam session, 8–11pm. No cover. "
+   "Singers and musicians welcome to sit in. "
+   "Confirmed on sourmousenyc.com August 2026.",
+   "https://www.sourmousenyc.com/events",
    "FREQ=WEEKLY;BYDAY=WE")
 
 ev("20260701T160000", "20260701T171500",
