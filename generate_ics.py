@@ -58,10 +58,11 @@ ev("20260705T140000", "20260705T180000",
 ev("20260701T220000", "20260702T000000",
    "Jazzcultural — Late Night Jam in the Cafe",
    "Jazzcultural, 349 W 46th St, Midtown, NYC",
-   "Rotating pianist hosts 10pm-midnight. Check smallslive.com for host. "
-   "Not confirmed Thu/Fri/Sat — call ahead on those nights.",
-   "https://www.smallslive.com",
-   "FREQ=WEEKLY;BYDAY=SU,MO,TU,WE")
+   "Open jam at 10pm following the main sets. Rotating hosts. "
+   "Confirmed Sun, Mon, Tue. Wed has Organ After Hours (curated); Thu–Sat have curated late sets. "
+   "Confirmed via jazzcultural.com August 2026.",
+   "https://www.jazzcultural.com",
+   "FREQ=WEEKLY;BYDAY=SU,MO,TU")
 
 ev("20260701T234500", "20260702T040000",
    "Smalls Jazz Club — Late Night Jam Session",
@@ -265,11 +266,12 @@ ev("20260707T193000", "20260707T220000",
    "https://www.jazzwahi.org/jazz-jam",
    "FREQ=WEEKLY;BYDAY=TU")
 
-ev("20260707T130000", "20260707T180000",
+ev("20260707T140000", "20260707T190000",
    "Jazzcultural — Barry Harris Institute Free Lesson & Jam",
    "Jazzcultural, 349 W 46th St, Midtown, NYC",
-   "Free admission. Recurring Tuesdays 1-6pm. Come learn, jam, sit in.",
-   "https://www.smallslive.com",
+   "Free admission. Recurring Tuesdays 2pm. Come learn, jam, sit in. "
+   "Confirmed via jazzcultural.com August 2026.",
+   "https://www.jazzcultural.com",
    "FREQ=WEEKLY;BYDAY=TU")
 
 ev("20260707T190000", "20260707T230000",
@@ -285,6 +287,14 @@ ev("20260707T210000", "20260707T230000",
    "Stonewall Inn, 53 Christopher St, West Village, NYC",
    "Guest pianists + singing waitstaff & bartenders. No cover. Also Wednesdays 9pm.",
    "https://thestonewallinnnyc.com/weekly-events",
+   "FREQ=WEEKLY;BYDAY=TU")
+
+ev("20260707T220000", "20260708T010000",
+   "One Flight Up — Tuesday Night Vocal Jam",
+   "One Flight Up, 108 Greenwich St, Financial District, NYC",
+   "Weekly Tuesday vocal jam, 10pm–close. No cover, 1 drink minimum. "
+   "Vocalists welcome. Confirmed via oneflightupjazz.com August 2026.",
+   "https://www.oneflightupjazz.com",
    "FREQ=WEEKLY;BYDAY=TU")
 
 # ── WEDNESDAY ──────────────────────────────────────────────────────────────
@@ -323,11 +333,13 @@ ev("20260701T190000", "20260701T230000",
    "FREQ=WEEKLY;BYDAY=WE")
 
 ev("20260701T200000", "20260702T000000",
-   "Gin Mill — Wednesday Night Jam Session (Peter Brainin)",
-   "The Gin Mill, 442 Amsterdam Ave (at 81st St), Upper West Side, NYC",
-   "Weekly Wednesday jazz jam session hosted by saxophonist Peter Brainin. 8pm start. "
-   "All levels welcome to sit in.",
-   "https://www.theginmillnyc.com/",
+   "The Westside Sessions — Wednesday Jazz Jam (Peter Brainin)",
+   "The Speakeasy @ Gin Mill, 442 Amsterdam Ave (at 81st St), Upper West Side, NYC",
+   "Weekly Wednesday jazz jam in the underground speakeasy beneath The Gin Mill. "
+   "Hosted by Grammy-winning saxophonist Peter Brainin with Luques Curtis (bass) and Gary Versace (piano). "
+   "8pm start. Musicians welcome to sit in. No cover. "
+   "Confirmed via thespeakeasyuws.com August 2026.",
+   "https://www.thespeakeasyuws.com/jams",
    "FREQ=WEEKLY;BYDAY=WE")
 
 ev("20260701T210000", "20260701T230000",
@@ -370,6 +382,24 @@ ev("20260702T200000", "20260702T230000",
    "",
    "FREQ=WEEKLY;BYDAY=TH")
 
+ev("20260702T230000", "20260703T020000",
+   "Vibe Check — Thursday Night Neo-Soul/Jazz Session",
+   "The Speakeasy @ Gin Mill, 442 Amsterdam Ave (at 81st St), Upper West Side, NYC",
+   "Weekly Thursday night neo-soul, hip-hop, and jazz session, 11pm–2am. No cover. "
+   "Hosted by David Engelhard (keys/sax) with resident band. "
+   "Vocalists and MCs welcome to perform. "
+   "Confirmed via thespeakeasyuws.com August 2026.",
+   "https://www.thespeakeasyuws.com/jams",
+   "FREQ=WEEKLY;BYDAY=TH")
+
+ev("20260702T220000", "20260703T010000",
+   "One Flight Up — Thursday Night Jam Session",
+   "One Flight Up, 108 Greenwich St, Financial District, NYC",
+   "Open jam 10pm–close following the headliner. No cover, 1 drink minimum. "
+   "Confirmed via oneflightupjazz.com FAQ August 2026.",
+   "https://www.oneflightupjazz.com/faq",
+   "FREQ=WEEKLY;BYDAY=TH")
+
 # ── FRIDAY ─────────────────────────────────────────────────────────────────
 
 ev("20260703T180000", "20260703T220000",
@@ -390,13 +420,13 @@ ev("20260717T224500", "20260718T013000",
    "https://jazz.org/dizzys/late-night-sessions-at-dizzys-club/",
    "FREQ=MONTHLY;BYDAY=3FR")
 
-ev("20260703T223000", "20260704T010000",
+ev("20260703T220000", "20260704T010000",
    "One Flight Up — Friday Night Jam Session",
    "One Flight Up, 108 Greenwich St, Financial District, NYC",
-   "Open jam 10:30pm–1am. No cover for jam sessions, 1 drink minimum. "
-   "Earlier headliner sets: $30 music room / $20 bar seating. "
-   "Confirmed via oneflightupjazz.com (WBGO feature July 2026).",
-   "https://www.oneflightupjazz.com/",
+   "Open jam 10pm–close following the headliner. No cover, 1 drink minimum. "
+   "Headliner sets (pre-jam): $30 music room / $20 bar seating. "
+   "Confirmed via oneflightupjazz.com FAQ August 2026.",
+   "https://www.oneflightupjazz.com/faq",
    "FREQ=WEEKLY;BYDAY=FR")
 
 # ── CLOSE UP (Mon + Wed–Sun) ───────────────────────────────────────────────
@@ -411,22 +441,13 @@ ev("20260706T233000", "20260707T010000",
 
 # ── SATURDAY ───────────────────────────────────────────────────────────────
 
-ev("20260704T223000", "20260705T010000",
+ev("20260704T220000", "20260705T010000",
    "One Flight Up — Saturday Night Jam Session",
    "One Flight Up, 108 Greenwich St, Financial District, NYC",
-   "Open jam 10:30pm–1am. No cover for jam sessions, 1 drink minimum. "
-   "Confirmed via oneflightupjazz.com 2026.",
-   "https://www.oneflightupjazz.com/",
+   "Open jam 10pm–close following the headliner. No cover, 1 drink minimum. "
+   "Confirmed via oneflightupjazz.com FAQ August 2026.",
+   "https://www.oneflightupjazz.com/faq",
    "FREQ=WEEKLY;BYDAY=SA")
-
-ev("20260901T190000", "20260901T210000",
-   "One Flight Up — Vocal Jazz Summit Vocal Jam (TENTATIVE — date TBD)",
-   "One Flight Up, 108 Greenwich St, Financial District, NYC",
-   "TENTATIVE — exact day and time not yet confirmed. "
-   "Starting September 2026, sponsored by the Vocal Jazz Summit. "
-   "Check oneflightupjazz.com or @vocaljazzsummit for the official schedule.",
-   "https://www.oneflightupjazz.com/",
-   "FREQ=DAILY;COUNT=1")
 
 ev("20260704T220000", "20260705T033000",
    "Bessie's Place — Live Performance & Open Jam",
