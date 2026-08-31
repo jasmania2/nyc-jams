@@ -242,10 +242,11 @@ ev("20260707T200000", "20260707T230000",
    "FREQ=WEEKLY;BYDAY=TU")
 
 ev("20260707T210000", "20260708T010000",
-   "Mona's Hot Four — Trad-Jazz Jam Session",
+   "Mona's Hot Five — Trad-Jazz Jam Session",
    "Mona's, 224 Ave B, East Village, NYC",
-   "Weekly late-night traditional jazz jam hosted by Dennis Lichtman's Mona's Hot Four since 2007. "
-   "9pm til late. No cover, tips for the band appreciated.",
+   "Weekly late-night traditional jazz jam hosted by Dennis Lichtman since 2007 (now Mona's Hot Five). "
+   "9pm til late. No cover, tips for the band appreciated. "
+   "Described by Wall Street Journal as 'ground zero for an emerging late-night scene of young traditional jazz and swing players.'",
    "https://www.dennislichtman.com/monas",
    "FREQ=WEEKLY;BYDAY=TU")
 
@@ -365,9 +366,10 @@ ev("20260702T200000", "20260702T230000",
 # ── FRIDAY ─────────────────────────────────────────────────────────────────
 
 ev("20260703T180000", "20260703T220000",
-   "Stonewall Inn — Karaoke with Jazz & DJ Chauncey D",
+   "Stonewall Inn — Friday Night Karaoke",
    "Stonewall Inn, 53 Christopher St, West Village, NYC",
-   "2nd floor. No cover. Weekly Friday.",
+   "Karaoke 6–10pm on the 2nd floor. No cover. Weekly Friday. "
+   "Check thestonewallinnnyc.com/weekly-events for current host.",
    "https://thestonewallinnnyc.com/weekly-events",
    "FREQ=WEEKLY;BYDAY=FR")
 
