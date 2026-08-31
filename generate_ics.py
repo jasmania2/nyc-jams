@@ -201,6 +201,13 @@ ev("20260706T213000", "20260707T000000",
    "https://www.birdlandjazz.com/tm-event/jim-carusos-cast-party/",
    "FREQ=WEEKLY;BYDAY=MO")
 
+ev("20260706T200000", "20260706T230000",
+   "Sour Mouse — Monday Night Jazz Jam Session",
+   "Sour Mouse, 110 Delancey St (Lower Level), Lower East Side, NYC",
+   "Weekly Monday jazz jam, 8pm. No cover. "
+   "Sit-in welcome. Confirmed on sourmousenyc.com August 2026.",
+   "https://www.sourmousenyc.com/event-list",
+   "FREQ=WEEKLY;BYDAY=MO")
 
 ev("20260720T190000", "20260720T230000",
    "Don't Tell Mama — 3rd Monday Jazz Jam (Kelly Wohlford)",
