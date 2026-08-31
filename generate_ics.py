@@ -267,11 +267,11 @@ ev("20260707T140000", "20260707T190000",
    "FREQ=WEEKLY;BYDAY=TU")
 
 ev("20260707T190000", "20260707T230000",
-   "Melba's Tuesday Night Live Music Jam (VERIFY BEFORE GOING)",
+   "Melba's — Tuesday Night Open Mic",
    "Melba's, 300 W 114th St, Harlem, NYC",
-   "UNVERIFIED — unable to confirm this jam within the last 6 months. "
-   "Call ahead: (212) 864-7777. Live music jam with soul food, DJ, and dancing over dinner.",
-   "https://www.melbasrestaurant.com/",
+   "Weekly Tuesday open mic. Soul food, live music, DJ, and dancing over dinner. "
+   "Confirmed via @melbasharlem Instagram August 2026.",
+   "https://www.instagram.com/melbasharlem/",
    "FREQ=WEEKLY;BYDAY=TU")
 
 ev("20260707T210000", "20260707T230000",
